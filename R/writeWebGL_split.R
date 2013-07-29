@@ -17,14 +17,14 @@
 #' brain <- contour3d(template, x=1:dtemp[1], y=1:dtemp[2], 
 #' z=1:dtemp[3], level = 4500, alpha = 0.1, draw = FALSE)
 #' drawScene.rgl(brain)
-#' ### this would be the ``activation'' or surface you want to render 
-#' ### here just taking the upper WM from the template image
+#' ### this would be the ``activation'' or surface you want to render - hyper-intense white matter
 #' contour3d(template, level = c(8200, 8250), alpha = c(0.5, 0.8), add = TRUE, color=c("yellow", "red"))
 #' ### add text
 #' text3d(x=dtemp[1]/2, y=dtemp[2]/2, z = dtemp[3]*0.98, text="Top")
 #' text3d(x=dtemp[1]*0.98, y=dtemp[2]/2, z = dtemp[3]/2, text="Right")
-#' writeWebGL_split(dir=getwd(), filename ="knitted_webGL.html", 
-#' template = system.file("my_template.html", package="brainGL"), width=500)
+#' browseURL(writeWebGL_split(dir=getwd(), filename ="knitted_webGL.html", 
+#' template = system.file("my_template.html", package="brainGL"), width=500, 
+#' writeIt=TRUE))
 #' @return if writeIt is TRUE, then returns the value from \link[rgl]{writeWebGL}.
 #' Otherwise, returns the split triangles from the rgl objects
 
