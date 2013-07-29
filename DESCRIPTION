@@ -12,7 +12,6 @@ Depends:
     rgl,
     misc3d,
     oro.nifti,
-    AnalyzeFMRI
 Collate:
     'makeScene.R'
     'write4D.file.R'
