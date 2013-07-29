@@ -1,0 +1,21 @@
+Package: brainGL
+Type: Package
+Title: Helper functions to misc3d and rgl packages to use on brain imaging
+Version: 1.0
+Date: 2013-07-29
+Author: John Muschelli III
+Maintainer: John Muschelli III <muschellij2@gmail.com>
+Description: More about what it does (maybe more than one line)
+License: GPL-2
+LazyData: true
+Depends:
+    rgl,
+    misc3d,
+    oro.nifti,
+    AnalyzeFMRI
+Collate:
+    'makeScene.R'
+    'write4D.file.R'
+    'write4D.R'
+    'writeWebGL_split.R'
+    'brainGL-package.R'
