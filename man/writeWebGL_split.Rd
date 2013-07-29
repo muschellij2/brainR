@@ -24,4 +24,22 @@
   Adapted \link[rgl]{writeWebGL} function that splits the
   triangles into 65535 vertices
 }
+\examples{
+template <- readNIfTI(system.file("MNI152_T1_2mm_brain.nii.gz", package="brainGL")
+, reorient=FALSE)
+dtemp <- dim(template)
+### 4500 - value that empirically value that presented a brain with gyri
+### lower values result in a smoother surface
+brain <- contour3d(template, x=1:dtemp[1], y=1:dtemp[2],
+z=1:dtemp[3], level = 4500, alpha = 0.1, draw = FALSE)
+drawScene.rgl(brain)
+### this would be the ``activation'' or surface you want to render
+### here just taking the upper WM from the template image
+contour3d(template, level = c(8200, 8250), alpha = c(0.5, 0.8), add = TRUE, color=c("yellow", "red"))
+### add text
+text3d(x=dtemp[1]/2, y=dtemp[2]/2, z = dtemp[3]*0.98, text="Top")
+text3d(x=dtemp[1]*0.98, y=dtemp[2]/2, z = dtemp[3]/2, text="Right")
+writeWebGL_split(dir=getwd(), filename ="knitted_webGL.html",
+template = system.file("my_template.html", package="brainGL"), width=500)
+}
 

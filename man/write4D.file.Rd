@@ -3,7 +3,7 @@
 \title{Write a 4D scene}
 \usage{
   write4D.file(scene = NULL, outfile = "index_4D.html",
-    fnames, visible = FALSE, opacity = 1, colors = NULL,
+    fnames, visible = TRUE, opacity = 1, colors = NULL,
     captions = "", standalone = FALSE, rescale = TRUE,
     index.file = system.file("index_template.html", package = "brainGL"))
 }
@@ -18,10 +18,24 @@
   \item{fnames}{- filenames for the 3D surfaces in the
   scene - needs to be the same length as scene}
 
+  \item{visible}{- logical vector indicating which
+  structures are visible in html file}
+
+  \item{opacity}{- list of alpha values - same length as
+  scene; if sub-structures are present, then the each list
+  element has length the numer of structures}
+
+  \item{standalone}{- logical - should this be able to be
+  rendered offline?}
+
+  \item{rescale}{- rescale the scene? - in beta}
+
   \item{captions}{- labels for checkboxes on html webpage}
 
-  \item{...}{- other options to be passed to
-  \link{write4D.file}}
+  \item{colors}{- character vector of colors (col2rgb is
+  applied)}
+
+  \item{index.file}{- template html file used}
 }
 \value{
   NULL
@@ -29,6 +43,9 @@
 \description{
   This function takes in a scene and writes it out to a
   series of files either with the stl format or obj format
-  (see \link[misc3d]{writeOBJ} and \link[misc3d]{writeSTL})
+}
+\seealso{
+  \code{\link{writeOBJ}}, \code{\link{writeSTL}},
+  \code{\link{contour3d}}
 }
 

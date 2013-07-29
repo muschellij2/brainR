@@ -1,8 +1,7 @@
 #' Write a 4D scene
 #'
 #' This function takes in a scene and writes it out to a series of files
-#' either with the stl format or obj format (see \link[misc3d]{writeOBJ} and 
-#' \link[misc3d]{writeSTL})
+#' either with the stl format or obj format 
 #'
 #' 
 #' @param scene - list of 3D triangles (see \link[misc3d]{contour3d}).  If a multicolored
@@ -11,13 +10,22 @@
 #' @param outfile - html filename that is to be exported
 #' @param fnames - filenames for the 3D surfaces in the scene - needs to 
 #' be the same length as scene
+#' @param visible - logical vector indicating which structures are visible in 
+#' html file
+#' @param opacity - list of alpha values - same length as scene; if sub-structures
+#' are present, then the each list element has length the numer of structures 
+#' @param standalone - logical - should this be able to be rendered offline?
+#' @param rescale - rescale the scene? - in beta
 #' @param captions - labels for checkboxes on html webpage
-#' @param ... - other options to be passed to \link{write4D.file}
+#' @param colors - character vector of colors (col2rgb is applied)
+#' @param index.file - template html file used 
 #' @export
+#' @seealso \code{\link{writeOBJ}}, \code{\link{writeSTL}}, 
+#' \code{\link{contour3d}}
 #' @return NULL
 
 write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames, 
-                         visible=FALSE, 
+                         visible=TRUE, 
                          opacity = 1, 
                          colors = NULL,
                          captions = "",
@@ -204,7 +212,9 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
   if (standalone) {
     htmltmp <- gsub("http://get.goxtk.com/xtk_edge.js", "xtk_edge.js", 
                     htmltmp, fixed=TRUE)
-    download.file("http://get.goxtk.com/xtk_edge.js", destdir=outdir)
+    download.file("http://get.goxtk.com/xtk_edge.js", 
+                  destfile=file.path(outdir, "xtk_edge.js")
+    )
     ### copy xtk_edge.js to file
   }  
   return(invisible(NULL))

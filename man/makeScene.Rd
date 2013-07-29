@@ -6,7 +6,7 @@
 }
 \arguments{
   \item{data}{- 3D array of values (can be
-  \link{"nifti-class"})}
+  \link{nifti-class})}
 
   \item{cutoffs}{- series of levels to be created}
 
@@ -22,7 +22,6 @@
   Make scene returns a list of levels - but makes them
   mutually distinct. So if cutoff 0.1, 0.2, then 0.1<= x <
   0.2 is an roi, not > 0.1 and > 0.2. Different than
-  \link[misc3d]{contour3d} as these are mutually exclusive
-  levels.
+  \link{contour3d} as these are mutually exclusive levels.
 }
 
