@@ -29,7 +29,7 @@
 #' Otherwise, returns the split triangles from the rgl objects
 
 
-writeWebGL_split <- function(ids=rgl.ids()$id, writeIt= TRUE, verb=TRUE, ...){
+writeWebGL_split <- function(ids=rgl.ids()$id, writeIt= TRUE, verb=FALSE, ...){
 	if (!require(rgl)) install.packages("rgl")
 	#if (!require(misc3d)) install.packages("misc3d")
 	if (verb) print("Splitting Triangles")
