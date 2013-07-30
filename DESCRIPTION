@@ -5,7 +5,7 @@ Version: 1.0
 Date: 2013-07-29
 Author: John Muschelli III
 Maintainer: John Muschelli III <muschellij2@gmail.com>
-Description: More about what it does (maybe more than one line)
+Description: This includes functions for creating 3D and 4D images using WebGL, RGL, and JavaScript Commands.  Brain image template: MNI152_T1_2mm_brain.nii.gz from Copyright (C) 1993Ð2009 Louis Collins, McConnell Brain Imaging Centre,  Montreal Neurological Institute, McGill University 6th generation non-linear symmetric brain
 License: GPL-2
 LazyData: true
 Depends:

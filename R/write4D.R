@@ -14,8 +14,7 @@
 #' @param ... - other options to be passed to \link{write4D.file}
 #' @export
 #' @examples
-#' \dontrun{
-#' template <- readNIfTI(system.file("MNI152_T1_2mm_brain.nii.gz", package="brainGL")
+#' template <- readNIfTI(system.file("MNI152_T1_1mm_brain.nii.gz", package="brainGL")
 #' , reorient=FALSE) 
 #' dtemp <- dim(template)
 #' ### 4500 - value that empirically value that presented a brain with gyri
@@ -25,14 +24,14 @@
 #' 
 #' imgs <- c("01_20020822.nii.gz", "01_20020718.nii.gz", "01_20010322.nii.gz", 
 #'          "01_20001221.nii.gz", "01_20001102.nii.gz")
+#' files <- sapply(imgs, system.file, package='brainGL')
 #' scene <- list(brain)
-## loop through images and thresh
+#' ## loop through images and thresh
 #' nimgs <- length(imgs)
 #' cols <- rainbow(nimgs)
 #' for (iimg in 1:nimgs) {
-#' mask <- readNIfTI(imgs[iimg], reorient=FALSE)
+#' mask <- readNIfTI(files[iimg], reorient=FALSE)
 #' if (length(dim(mask)) > 3) mask <- mask[,,,1] 
-
 #' ### use 0.99 for level of mask - binary
 #'   activation <- contour3d(mask, level = c(0.99), alpha = 1, 
 #'   add = TRUE, color=cols[iimg], draw=FALSE)  
@@ -43,7 +42,6 @@
 #' fnames <- c("brain.stl", gsub(".nii.gz", ".stl", imgs, fixed=TRUE))
 #' outfile <-  "index_4D_stl.html"
 #' write4D(scene=scene, fnames=fnames, outfile=outfile)
-#' }
 #' @return NULL
 
 write4D <- function(scene, outfile, fnames=NULL, 
