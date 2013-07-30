@@ -30,7 +30,7 @@
   (see \link{writeOBJ} and \link{writeSTL})
 }
 \examples{
-template <- readNIfTI(system.file("MNI152_T1_1mm_brain.nii.gz", package="brainGL")
+template <- readNIfTI(system.file("MNI152_T1_1mm_brain.nii.gz", package="brainRGL")
 , reorient=FALSE)
 dtemp <- dim(template)
 ### 4500 - value that empirically value that presented a brain with gyri
@@ -41,7 +41,7 @@ z=1:dtemp[3], level = 4500, alpha = 0.1, draw = FALSE)
 ### Example data courtesy of Daniel Reich
 ### Each visit is a binary mask of lesions in the brain
 imgs <- paste("Visit_", 1:5, ".nii.gz", sep="")
-files <- sapply(imgs, system.file, package='brainGL')
+files <- sapply(imgs, system.file, package='brainRGL')
 scene <- list(brain)
 ## loop through images and thresh
 nimgs <- length(imgs)

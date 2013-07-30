@@ -1,4 +1,4 @@
-Package: brainGL
+Package: brainRGL
 Type: Package
 Title: Helper functions to misc3d and rgl packages to use on brain imaging
 Version: 1.0
@@ -17,4 +17,4 @@ Collate:
     'write4D.file.R'
     'write4D.R'
     'writeWebGL_split.R'
-    'brainGL-package.R'
+    'brainRGL-package.R'

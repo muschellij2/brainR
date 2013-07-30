@@ -14,7 +14,7 @@
 #' @param ... - other options to be passed to \link{write4D.file}
 #' @export
 #' @examples
-#' template <- readNIfTI(system.file("MNI152_T1_1mm_brain.nii.gz", package="brainGL")
+#' template <- readNIfTI(system.file("MNI152_T1_1mm_brain.nii.gz", package="brainRGL")
 #' , reorient=FALSE) 
 #' dtemp <- dim(template)
 #' ### 4500 - value that empirically value that presented a brain with gyri
@@ -25,7 +25,7 @@
 #' ### Example data courtesy of Daniel Reich 
 #' ### Each visit is a binary mask of lesions in the brain
 #' imgs <- paste("Visit_", 1:5, ".nii.gz", sep="") 
-#' files <- sapply(imgs, system.file, package='brainGL')
+#' files <- sapply(imgs, system.file, package='brainRGL')
 #' scene <- list(brain)
 #' ## loop through images and thresh
 #' nimgs <- length(imgs)

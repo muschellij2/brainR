@@ -32,7 +32,7 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
                          standalone=FALSE,
                          rescale=TRUE,
                          index.file=system.file("index_template.html", 
-                                                package="brainGL")){
+                                                package="brainRGL")){
   
   require(rgl)
   require(misc3d)
