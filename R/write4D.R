@@ -20,7 +20,7 @@
 #' ### 4500 - value that empirically value that presented a brain with gyri
 #' ### lower values result in a smoother surface
 #' brain <- contour3d(template, x=1:dtemp[1], y=1:dtemp[2], 
-#' z=1:dtemp[3], level = 4500, alpha = 0.1, draw = FALSE)
+#' z=1:dtemp[3], level = 4500, alpha = 0.8, draw = FALSE)
 #' 
 #' ### Example data courtesy of Daniel Reich 
 #' ### Each visit is a binary mask of lesions in the brain

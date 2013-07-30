@@ -5,7 +5,7 @@
   write4D.file(scene = NULL, outfile = "index_4D.html",
     fnames, visible = TRUE, opacity = 1, colors = NULL,
     captions = "", standalone = FALSE, rescale = TRUE,
-    index.file = system.file("index_template.html", package = "brainRGL"))
+    index.file = system.file("index_template.html", package = "brainR"))
 }
 \arguments{
   \item{scene}{- list of 3D triangles (see

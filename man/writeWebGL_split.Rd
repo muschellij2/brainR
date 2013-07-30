@@ -25,10 +25,10 @@
   triangles into 65535 vertices
 }
 \examples{
-#Brain Template from Copyright (C) 1993–2009 Louis Collins, McConnell Brain Imaging Centre,
+#Brain Template from Copyright (C) 1993-2009 Louis Collins, McConnell Brain Imaging Centre,
 #Montreal Neurological Institute, McGill University
 #6th generation non-linear symmetric brain
-template <- readNIfTI(system.file("MNI152_T1_2mm_brain.nii.gz", package="brainRGL")
+template <- readNIfTI(system.file("MNI152_T1_2mm_brain.nii.gz", package="brainR")
 , reorient=FALSE)
 dtemp <- dim(template)
 ### 4500 - value that empirically value that presented a brain with gyri
@@ -42,7 +42,7 @@ contour3d(template, level = c(8200, 8250), alpha = c(0.5, 0.8), add = TRUE, colo
 text3d(x=dtemp[1]/2, y=dtemp[2]/2, z = dtemp[3]*0.98, text="Top")
 text3d(x=dtemp[1]*0.98, y=dtemp[2]/2, z = dtemp[3]/2, text="Right")
 browseURL(writeWebGL_split(dir=getwd(), filename ="knitted_webGL.html",
-template = system.file("my_template.html", package="brainRGL"), width=500,
+template = system.file("my_template.html", package="brainR"), width=500,
 writeIt=TRUE))
 }
 

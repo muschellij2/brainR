@@ -9,7 +9,7 @@
 #' @param ... - further arguments passed to \link[rgl]{writeWebGL}
 #' @export
 #' @examples
-#' #Brain Template from Copyright (C) 1993–2009 Louis Collins, McConnell Brain Imaging Centre, 
+#' #Brain Template from Copyright (C) 1993-2009 Louis Collins, McConnell Brain Imaging Centre, 
 #' #Montreal Neurological Institute, McGill University
 #' #6th generation non-linear symmetric brain
 #' template <- readNIfTI(system.file("MNI152_T1_2mm_brain.nii.gz", package="brainR")

@@ -1,10 +1,10 @@
 \docType{package}
-\name{brainRGL-package}
-\alias{brainRGL}
-\alias{brainRGL-package}
+\name{brainR-package}
+\alias{brainR}
+\alias{brainR-package}
 \title{Functions to render 3D brain images in html}
 \description{
-  Brain Template from Copyright (C) 1993–2009 Louis
+  Brain Template from Copyright (C) 1993-2009 Louis
   Collins, McConnell Brain Imaging Centre, Montreal
   Neurological Institute, McGill University 6th generation
   non-linear symmetric brain
@@ -23,6 +23,6 @@
 \seealso{
   \code{\link{contour3d}}, \code{\link{rgl}}
 }
-\keyword{brainRGL}
+\keyword{brainR}
 \keyword{package,}
 

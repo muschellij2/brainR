@@ -1,4 +1,4 @@
-#' Brain Template from Copyright (C) 1993–2009 Louis Collins, McConnell Brain Imaging Centre, 
+#' Brain Template from Copyright (C) 1993-2009 Louis Collins, McConnell Brain Imaging Centre, 
 #' Montreal Neurological Institute, McGill University
 #' 6th generation non-linear symmetric brain
 #' @references G. Grabner, A. L. Janke, M. M. Budge, D. Smith, J. Pruessner, and
