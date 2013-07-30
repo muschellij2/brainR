@@ -1,4 +1,4 @@
-BrainRGL
+brainR
 =======
 
-BrainRGL R Package
+brainR R Package
