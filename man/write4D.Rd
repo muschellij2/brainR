@@ -38,8 +38,9 @@ dtemp <- dim(template)
 brain <- contour3d(template, x=1:dtemp[1], y=1:dtemp[2],
 z=1:dtemp[3], level = 4500, alpha = 0.1, draw = FALSE)
 
-imgs <- c("01_20020822.nii.gz", "01_20020718.nii.gz", "01_20010322.nii.gz",
-         "01_20001221.nii.gz", "01_20001102.nii.gz")
+### Example data courtesy of Daniel Reich
+### Each visit is a binary mask of lesions in the brain
+imgs <- paste("Visit_", 1:5, ".nii.gz", sep="")
 files <- sapply(imgs, system.file, package='brainGL')
 scene <- list(brain)
 ## loop through images and thresh
@@ -58,5 +59,6 @@ scene <- c(scene, list(activation))
 fnames <- c("brain.stl", gsub(".nii.gz", ".stl", imgs, fixed=TRUE))
 outfile <-  "index_4D_stl.html"
 write4D(scene=scene, fnames=fnames, outfile=outfile)
+browseURL(outfile)
 }
 
