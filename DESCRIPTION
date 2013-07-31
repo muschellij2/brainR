@@ -11,7 +11,7 @@ LazyData: true
 Depends:
     rgl,
     misc3d,
-    oro.nifti,
+    oro.nifti
 Collate:
     'makeScene.R'
     'write4D.file.R'
