@@ -2,6 +2,7 @@
 .Rhistory
 .RData
 !MNI152_T1_2mm_brain.nii.gz
+!MNI152_T1_1mm_brain.nii.gz
 !Visit_1.nii.gz
 !Visit_2.nii.gz
 !Visit_3.nii.gz
