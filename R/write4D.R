@@ -4,14 +4,14 @@
 #' either with the stl format or obj format (see \link{writeOBJ} and 
 #' \link{writeSTL})
 #'
-#' @param scene - list of 3D triangles (see \link{contour3d}).  If a multicolored
+#' @param scene list of 3D triangles (see \link{contour3d}).  If a multicolored
 #' object is to be rendered (multiple contours with one control) - it must be in a 
 #' list
-#' @param outfile - html filename that is to be exported
-#' @param fnames - filenames for the 3D surfaces in the scene - needs to 
+#' @param outfile html filename that is to be exported
+#' @param fnames filenames for the 3D surfaces in the scene - needs to 
 #' be the same length as scene
-#' @param captions - labels for checkboxes on html webpage
-#' @param ... - other options to be passed to \link{write4D.file}
+#' @param captions labels for checkboxes on html webpage
+#' @param ... other options to be passed to \link{write4D.file}
 #' @export
 #' @examples
 #' template <- readNIfTI(system.file("MNI152_T1_1mm_brain.nii.gz", package="brainR")
