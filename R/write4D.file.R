@@ -199,6 +199,9 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
   if (nrois > 1) roinames <- paste0("'ROI", 2:nrois, "'", collapse = ", ")
   addlist <- grep("%ADDROILIST%", htmltmp)
   htmltmp[addlist] <- gsub("%ADDROILIST%", roinames, htmltmp[addlist])
+
+  ## set opacity
+  htmltmp <- gsub("%BRAINOPAC%", copac[1], htmltmp)
   
   ## add checkboxes for control
   addbox <- grep("%ADDCHECKBOXES%", htmltmp)

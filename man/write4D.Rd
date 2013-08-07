@@ -6,19 +6,18 @@
     ...)
 }
 \arguments{
-  \item{scene}{- list of 3D triangles (see
-  \link{contour3d}).  If a multicolored object is to be
-  rendered (multiple contours with one control) - it must
-  be in a list}
+  \item{scene}{list of 3D triangles (see \link{contour3d}).
+  If a multicolored object is to be rendered (multiple
+  contours with one control) - it must be in a list}
 
-  \item{outfile}{- html filename that is to be exported}
+  \item{outfile}{html filename that is to be exported}
 
-  \item{fnames}{- filenames for the 3D surfaces in the
-  scene - needs to be the same length as scene}
+  \item{fnames}{filenames for the 3D surfaces in the scene
+  - needs to be the same length as scene}
 
-  \item{captions}{- labels for checkboxes on html webpage}
+  \item{captions}{labels for checkboxes on html webpage}
 
-  \item{...}{- other options to be passed to
+  \item{...}{other options to be passed to
   \link{write4D.file}}
 }
 \value{
