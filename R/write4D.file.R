@@ -30,7 +30,7 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
                          colors = NULL,
                          captions = "",
                          standalone=FALSE,
-                         rescale=TRUE,
+                         rescale=FALSE,
                          index.file=system.file("index_template.html", 
                                                 package="brainR")){
   
