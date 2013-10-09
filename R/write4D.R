@@ -47,7 +47,7 @@
 #' @return NULL
 
 write4D <- function(scene, outfile, fnames=NULL, 
-                    captions=NULL, ...){
+                    captions=NULL, writefiles=TRUE, ...){
   
   #   if (is.null(fnames) & is.null(format)){
   #     warning("No Format or filenames specified - using STL and making names")
@@ -103,11 +103,13 @@ write4D <- function(scene, outfile, fnames=NULL,
     fname <- fnames[iroi]
     fmt <- formats[iroi]    
     if (class(irgl) == "Triangles3D"){
-      drawScene.rgl(irgl)
-      obj.colors <- irgl$color
-      obj.opac <- irgl$alpha
-      lfname <- fname
-      write_output(outdir, fname, fmt)
+      if (writefiles) {
+        drawScene.rgl(irgl)
+        obj.colors <- irgl$color
+        obj.opac <- irgl$alpha
+        lfname <- fname
+        write_output(outdir, fname, fmt)
+      }
     }
     if (class(irgl) == "list"){
       obj.colors <- sapply(irgl, function(x) x$color)
@@ -120,10 +122,12 @@ write4D <- function(scene, outfile, fnames=NULL,
       nums <- sapply(1:nsubrois, sprintf, fmt=paste0("%0", getfmt, ".0f"))
       lfname <- paste0(stub, "_", nums, ".", tolower(fmt))
       for (isroi in 1:nsubrois){
-        iirgl <- irgl[[isroi]]
-        drawScene.rgl(iirgl)
-        sfname <- paste0(stub, "_", nums[isroi], ".", tolower(fmt))
-        write_output(outdir, sfname, fmt )
+        if (writefiles) {
+          iirgl <- irgl[[isroi]]
+          drawScene.rgl(iirgl)
+          sfname <- paste0(stub, "_", nums[isroi], ".", tolower(fmt))
+          write_output(outdir, sfname, fmt )
+        }
       }
     } ## end list
     stopifnot(class(irgl) %in% c("list", "Triangles3D"))
