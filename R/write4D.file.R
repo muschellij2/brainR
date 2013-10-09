@@ -25,7 +25,7 @@
 #' @return NULL
 
 
-# toggle - "checkbox" (default) or "radio" for radio or checkboxes to switch things
+# toggle - "checkbox" (default) or "radio" for radio or checkboxes to switch thing
 
 write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames, 
                          visible=TRUE, 
@@ -117,8 +117,9 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
     if (toggle == "checkbox") {
       addto <- paste0(', Value = "', roiname, '"')
       fcn <- "GetSelectedItem() "
+    }
     if (toggle == "radio") {
-      addto <- "GetradioSelectedItem()"
+      addto <- "GetradioSelectedItem() "
       vis <- FALSE
     }      
     ret <- paste0('<Input type = ', toggle, ' Name = r1 ', addto, 
@@ -231,3 +232,4 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
   }  
   return(invisible(NULL))
 }
+  
