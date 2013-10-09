@@ -55,6 +55,30 @@ function GetSelectedItem() {
 	}
 	
 }
+
+function GetradioSelectedItem() {
+
+	chosen = ""
+	len = document.f1.r1.length
+	
+	for (i = 0; i <len; i++) {
+		check = document.f1.r1[i].value
+        	    o = eval(check);
+	            o.visible = false;
+		if (document.f1.r1[i].checked) {
+			chosen = document.f1.r1[i].value
+		}
+	}
+	
+	if (chosen == "") {
+		alert("No Location Chosen")
+	}
+	else {
+            o = eval(chosen);
+            o.visible = true;
+            o.opacity = 1;
+	}
+}
 		
 		  function highlight(what) {
 		    
