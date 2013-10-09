@@ -19,11 +19,13 @@
 #' @param captions - labels for checkboxes on html webpage
 #' @param colors - character vector of colors (col2rgb is applied)
 #' @param index.file - template html file used 
-#' @param toggle - "checkbox" (default) or "radio" for radio or checkboxes to switch things
 #' @export
 #' @seealso \code{\link{writeOBJ}}, \code{\link{writeSTL}}, 
 #' \code{\link{contour3d}}
 #' @return NULL
+
+
+# toggle - "checkbox" (default) or "radio" for radio or checkboxes to switch things
 
 write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames, 
                          visible=TRUE, 
