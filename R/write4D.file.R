@@ -216,8 +216,7 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
     htmltmp <- gsub("http://get.goxtk.com/xtk_edge.js", "xtk_edge.js", 
                     htmltmp, fixed=TRUE)
     download.file("http://get.goxtk.com/xtk_edge.js", 
-                  destfile=file.path(outdir, "xtk_edge.js"))
-    )
+                  destfile=file.path(outdir, "xtk_edge.js") )
     ### copy xtk_edge.js to file
   }  
   return(invisible(NULL))

@@ -4,7 +4,7 @@
 \usage{
   write4D.file(scene = NULL, outfile = "index_4D.html",
     fnames, visible = TRUE, opacity = 1, colors = NULL,
-    captions = "", standalone = FALSE, rescale = TRUE,
+    captions = "", standalone = FALSE, rescale = FALSE,
     index.file = system.file("index_template.html", package = "brainR"))
 }
 \arguments{
