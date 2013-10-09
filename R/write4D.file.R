@@ -19,6 +19,7 @@
 #' @param captions - labels for checkboxes on html webpage
 #' @param colors - character vector of colors (col2rgb is applied)
 #' @param index.file - template html file used 
+#' @param toggle - "checkbox" (default) or "radio" for radio or checkboxes to switch things
 #' @export
 #' @seealso \code{\link{writeOBJ}}, \code{\link{writeSTL}}, 
 #' \code{\link{contour3d}}
@@ -32,7 +33,7 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
                          standalone=FALSE,
                          rescale=FALSE,
                          index.file=system.file("index_template.html", 
-                                                package="brainR")){
+                                                package="brainR"), toggle="checkbox"){
   
   require(rgl)
   require(misc3d)
@@ -108,10 +109,10 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
   indent <- gsub("%ADDROI%", "", htmltmp[add_roi])
   ### assume that the first image is a brain
   
-  make_input <- function(roiname, caption, vis){
+  make_input <- function(roiname, caption, vis, toggle){
     if (caption == "" | is.na(caption)) caption <- roiname
     stopifnot(all(vis %in% c("true", "false")))
-    ret <- paste0('<Input type = checkbox Name = r1 Value = "', roiname, 
+    ret <- paste0('<Input type = ', toggle, 'Name = r1 Value = "', roiname, 
                   '" onClick =GetSelectedItem() "', ifelse(vis, "checked", ""), 
                   '">', caption)
     return(ret)
@@ -186,7 +187,7 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
     # print("Caption")
     # print(cap)
     ### for checkboxes
-    input <- make_input(roiname=rname, caption=cap, vis=vis)
+    input <- make_input(roiname=rname, caption=cap, vis=vis, toggle= toggle)
     inputs <- c(inputs, input)
     
     cmds <- c(cmds, "", cmd)
