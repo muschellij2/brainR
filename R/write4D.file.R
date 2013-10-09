@@ -114,12 +114,11 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
   make_input <- function(roiname, caption, vis, toggle){
     if (caption == "" | is.na(caption)) caption <- roiname
     stopifnot(all(vis %in% c("true", "false")))
+    addto <- paste0(', Value = "', roiname, '"')
     if (toggle == "checkbox") {
-      addto <- paste0(', Value = "', roiname, '"')
       fcn <- "GetSelectedItem() "
     }
     if (toggle == "radio") {
-      addto <- ""
       fcn <- "GetradioSelectedItem() "
       vis <- FALSE
     }      
@@ -198,7 +197,11 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
     # print("Caption")
     # print(cap)
     ### for checkboxes
-    input <- make_input(roiname=rname, caption=cap, vis=vis, toggle= toggle)
+    if (iroi == 1) {
+      input <- make_input(roiname=rname, caption=cap, vis=vis, toggle= "checkbox")
+    } else {
+      input <- make_input(roiname=rname, caption=cap, vis=vis, toggle= toggle)
+    }
     inputs <- c(inputs, input)
     
     cmds <- c(cmds, "", cmd)
