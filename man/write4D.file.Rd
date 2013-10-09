@@ -37,9 +37,6 @@
   applied)}
 
   \item{index.file}{- template html file used}
-
-  \item{toggle}{- "checkbox" (default) or "radio" for radio
-  or checkboxes to switch things}
 }
 \value{
   NULL
