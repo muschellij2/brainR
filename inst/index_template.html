@@ -32,19 +32,24 @@ brains = ['ROI1'];
 function GetSelectedItem() {
 
 	chosen = ""
-	len = document.f1.r1.length
-	console.log("doc = " + document.f1.r1);
+	len = document.f1.r2.length;
+	if(typeof len == 'undefined') {
+		len = 1;
+	}
+	doc = document.f1.r2;
 	console.log("len = " + len);
 
 	for (i = 0; i < len; i++) {
-		check = document.f1.r1[i].value
+		obj = document.f1.r2[i];
+		if (len == 1) obj = document.f1.r2;
+		check = obj.value;
 		console.log("check = " + check);
 
         	    o = eval(check);
 	            o.visible = false;
 		
-		if (document.f1.r1[i].checked) {
-			chosen = document.f1.r1[i].value;
+		if (obj.checked) {
+			chosen = obj.value;
             o = eval(chosen);
             o.visible = true;
             // o.opacity = 1;

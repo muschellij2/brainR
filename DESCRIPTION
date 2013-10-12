@@ -18,3 +18,4 @@ Collate:
     'write4D.R'
     'writeWebGL_split.R'
     'brainR-package.R'
+    'scene4d.R'

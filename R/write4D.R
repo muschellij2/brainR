@@ -42,7 +42,7 @@
 #' ## make output image names from image names
 #' fnames <- c("brain.stl", gsub(".nii.gz", ".stl", imgs, fixed=TRUE))
 #' outfile <-  "index_4D_stl.html"
-#' write4D(scene=scene, fnames=fnames, outfile=outfile, standalone=TRUE)
+#' write4D(scene=scene, fnames=fnames, outfile=outfile, standalone=TRUE, rescale=TRUE)
 #' browseURL(outfile)
 #' @return NULL
 
