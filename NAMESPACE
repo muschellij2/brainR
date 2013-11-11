@@ -1,5 +1,5 @@
 export(makeScene)
 export(scene4d)
-export(write4D.file)
 export(write4D)
+export(write4D.file)
 export(writeWebGL_split)
