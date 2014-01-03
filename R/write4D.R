@@ -11,6 +11,7 @@
 #' @param fnames filenames for the 3D surfaces in the scene - needs to 
 #' be the same length as scene
 #' @param captions labels for checkboxes on html webpage
+#' @param writefiles (experimental) simply run the code to create the html and not write the .obj or .stl files
 #' @param ... other options to be passed to \link{write4D.file}
 #' @export
 #' @examples
@@ -43,7 +44,7 @@
 #' fnames <- c("brain.stl", gsub(".nii.gz", ".stl", imgs, fixed=TRUE))
 #' outfile <-  "index_4D_stl.html"
 #' write4D(scene=scene, fnames=fnames, outfile=outfile, standalone=TRUE, rescale=TRUE)
-#' browseURL(outfile)
+#' # browseURL(outfile)
 #' @return NULL
 
 write4D <- function(scene, outfile, fnames=NULL, 

@@ -17,6 +17,9 @@
 
   \item{captions}{labels for checkboxes on html webpage}
 
+  \item{writefiles}{(experimental) simply run the code to
+  create the html and not write the .obj or .stl files}
+
   \item{...}{other options to be passed to
   \link{write4D.file}}
 }
@@ -58,6 +61,6 @@ scene <- c(scene, list(activation))
 fnames <- c("brain.stl", gsub(".nii.gz", ".stl", imgs, fixed=TRUE))
 outfile <-  "index_4D_stl.html"
 write4D(scene=scene, fnames=fnames, outfile=outfile, standalone=TRUE, rescale=TRUE)
-browseURL(outfile)
+# browseURL(outfile)
 }
 

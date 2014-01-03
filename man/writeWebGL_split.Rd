@@ -25,7 +25,8 @@
   triangles into 65535 vertices
 }
 \examples{
-#Brain Template from Copyright (C) 1993-2009 Louis Collins, McConnell Brain Imaging Centre,
+#Brain Template from Copyright (C) 1993-2009 Louis Collins,
+#McConnell Brain Imaging Centre,
 #Montreal Neurological Institute, McGill University
 #6th generation non-linear symmetric brain
 template <- readNIfTI(system.file("MNI152_T1_2mm_brain.nii.gz", package="brainR")
@@ -36,13 +37,17 @@ dtemp <- dim(template)
 brain <- contour3d(template, x=1:dtemp[1], y=1:dtemp[2],
 z=1:dtemp[3], level = 4500, alpha = 0.1, draw = FALSE)
 drawScene.rgl(brain)
-### this would be the ``activation'' or surface you want to render - hyper-intense white matter
-contour3d(template, level = c(8200, 8250), alpha = c(0.5, 0.8), add = TRUE, color=c("yellow", "red"))
+### this would be the ``activation'' or surface you want to render -
+# hyper-intense white matter
+contour3d(template, level = c(8200, 8250),
+alpha = c(0.5, 0.8), add = TRUE, color=c("yellow", "red"))
 ### add text
 text3d(x=dtemp[1]/2, y=dtemp[2]/2, z = dtemp[3]*0.98, text="Top")
 text3d(x=dtemp[1]*0.98, y=dtemp[2]/2, z = dtemp[3]/2, text="Right")
-browseURL(writeWebGL_split(dir=getwd(), filename ="knitted_webGL.html",
+fname <- "knitted_webGL.html"
+writeWebGL_split(dir=getwd(), filename =fname,
 template = system.file("my_template.html", package="brainR"), width=500,
-writeIt=TRUE))
+writeIt=TRUE)
+# browseURL(fname)
 }
 

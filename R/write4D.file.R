@@ -18,14 +18,14 @@
 #' @param rescale - rescale the scene? - in beta
 #' @param captions - labels for checkboxes on html webpage
 #' @param colors - character vector of colors (col2rgb is applied)
-#' @param index.file - template html file used 
+#' @param index.file - template html file used
+#' @param toggle - (experimental) "checkbox" (default) or "radio" for radio or checkboxes to switch thing 
 #' @export
 #' @seealso \code{\link{writeOBJ}}, \code{\link{writeSTL}}, 
 #' \code{\link{contour3d}}
 #' @return NULL
 
 
-# toggle - "checkbox" (default) or "radio" for radio or checkboxes to switch thing
 
 write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames, 
                          visible=TRUE, 
@@ -37,8 +37,6 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
                          index.file=system.file("index_template.html", 
                                                 package="brainR"), toggle="checkbox"){
   
-  require(rgl)
-  require(misc3d)
   
   stopifnot(!is.null(scene))
   
