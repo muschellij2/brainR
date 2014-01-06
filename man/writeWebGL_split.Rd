@@ -2,8 +2,7 @@
 \alias{writeWebGL_split}
 \title{Write WebGL with split triangles}
 \usage{
-  writeWebGL_split(ids = rgl.ids()$id, writeIt = TRUE,
-    verb = FALSE, ...)
+writeWebGL_split(ids = rgl.ids()$id, writeIt = TRUE, verb = FALSE, ...)
 }
 \arguments{
   \item{ids}{- rgl ids (see \link[rgl]{rgl.ids})}
@@ -16,15 +15,16 @@
   \link[rgl]{writeWebGL}}
 }
 \value{
-  if writeIt is TRUE, then returns the value from
-  \link[rgl]{writeWebGL}. Otherwise, returns the split
-  triangles from the rgl objects
+if writeIt is TRUE, then returns the value from
+\link[rgl]{writeWebGL}. Otherwise, returns the split
+triangles from the rgl objects
 }
 \description{
-  Adapted \link[rgl]{writeWebGL} function that splits the
-  triangles into 65535 vertices
+Adapted \link[rgl]{writeWebGL} function that splits the
+triangles into 65535 vertices
 }
 \examples{
+\dontrun{
 #Brain Template from Copyright (C) 1993-2009 Louis Collins,
 #McConnell Brain Imaging Centre,
 #Montreal Neurological Institute, McGill University
@@ -48,6 +48,7 @@ fname <- "knitted_webGL.html"
 writeWebGL_split(dir=getwd(), filename =fname,
 template = system.file("my_template.html", package="brainR"), width=500,
 writeIt=TRUE)
-# browseURL(fname)
+browseURL(fname)
+}
 }
 

@@ -2,8 +2,8 @@
 \alias{write4D}
 \title{Wrapper to write a 4D scene}
 \usage{
-  write4D(scene, outfile, fnames = NULL, captions = NULL,
-    writefiles = TRUE, ...)
+write4D(scene, outfile, fnames = NULL, captions = NULL, writefiles = TRUE,
+  ...)
 }
 \arguments{
   \item{scene}{list of 3D triangles (see \link{contour3d}).
@@ -23,15 +23,13 @@
   \item{...}{other options to be passed to
   \link{write4D.file}}
 }
-\value{
-  NULL
-}
 \description{
-  This function takes in a scene and writes it out to a
-  series of files either with the stl format or obj format
-  (see \link{writeOBJ} and \link{writeSTL})
+This function takes in a scene and writes it out to a
+series of files either with the stl format or obj format
+(see \link{writeOBJ} and \link{writeSTL})
 }
 \examples{
+\dontrun{
 template <- readNIfTI(system.file("MNI152_T1_1mm_brain.nii.gz", package="brainR")
 , reorient=FALSE)
 dtemp <- dim(template)
@@ -62,5 +60,6 @@ fnames <- c("brain.stl", gsub(".nii.gz", ".stl", imgs, fixed=TRUE))
 outfile <-  "index_4D_stl.html"
 write4D(scene=scene, fnames=fnames, outfile=outfile, standalone=TRUE, rescale=TRUE)
 # browseURL(outfile)
+}
 }
 

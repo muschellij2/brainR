@@ -4,24 +4,24 @@
 \alias{brainR-package}
 \title{Functions to render 3D brain images in html}
 \description{
-  Brain Template from Copyright (C) 1993-2009 Louis
-  Collins, McConnell Brain Imaging Centre, Montreal
-  Neurological Institute, McGill University 6th generation
-  non-linear symmetric brain
+Brain Template from Copyright (C) 1993-2009 Louis Collins,
+McConnell Brain Imaging Centre, Montreal Neurological
+Institute, McGill University 6th generation non-linear
+symmetric brain
 }
 \author{
-  John Muschelli \email{muschellij2@gmail.com}
+John Muschelli \email{muschellij2@gmail.com}
 }
 \references{
-  G. Grabner, A. L. Janke, M. M. Budge, D. Smith, J.
-  Pruessner, and D. L. Collins, "Symmetric atlasing and
-  model based segmentation: an application to the
-  hippocampus in older adults", Med Image Comput Comput
-  Assist Interv Int Conf Med Image Comput Comput Assist
-  Interv, vol. 9, pp. 58-66, 2006.
+G. Grabner, A. L. Janke, M. M. Budge, D. Smith, J.
+Pruessner, and D. L. Collins, "Symmetric atlasing and model
+based segmentation: an application to the hippocampus in
+older adults", Med Image Comput Comput Assist Interv Int
+Conf Med Image Comput Comput Assist Interv, vol. 9, pp.
+58-66, 2006.
 }
 \seealso{
-  \code{\link{contour3d}}, \code{\link{rgl}}
+\code{\link{contour3d}}, \code{\link{rgl}}
 }
 \keyword{brainR}
 \keyword{package,}

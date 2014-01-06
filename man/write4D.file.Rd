@@ -2,11 +2,11 @@
 \alias{write4D.file}
 \title{Write a 4D scene}
 \usage{
-  write4D.file(scene = NULL, outfile = "index_4D.html",
-    fnames, visible = TRUE, opacity = 1, colors = NULL,
-    captions = "", standalone = FALSE, rescale = FALSE,
-    index.file = system.file("index_template.html", package = "brainR"),
-    toggle = "checkbox")
+write4D.file(scene = NULL, outfile = "index_4D.html", fnames,
+  visible = TRUE, opacity = 1, colors = NULL, captions = "",
+  standalone = FALSE, rescale = FALSE,
+  index.file = system.file("index_template.html", package = "brainR"),
+  toggle = "checkbox")
 }
 \arguments{
   \item{scene}{- list of 3D triangles (see
@@ -41,15 +41,12 @@
   \item{toggle}{- (experimental) "checkbox" (default) or
   "radio" for radio or checkboxes to switch thing}
 }
-\value{
-  NULL
-}
 \description{
-  This function takes in a scene and writes it out to a
-  series of files either with the stl format or obj format
+This function takes in a scene and writes it out to a
+series of files either with the stl format or obj format
 }
 \seealso{
-  \code{\link{writeOBJ}}, \code{\link{writeSTL}},
-  \code{\link{contour3d}}
+\code{\link{writeOBJ}}, \code{\link{writeSTL}},
+\code{\link{contour3d}}
 }
 

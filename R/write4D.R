@@ -15,6 +15,7 @@
 #' @param ... other options to be passed to \link{write4D.file}
 #' @export
 #' @examples
+#' \dontrun{
 #' template <- readNIfTI(system.file("MNI152_T1_1mm_brain.nii.gz", package="brainR")
 #' , reorient=FALSE) 
 #' dtemp <- dim(template)
@@ -45,6 +46,7 @@
 #' outfile <-  "index_4D_stl.html"
 #' write4D(scene=scene, fnames=fnames, outfile=outfile, standalone=TRUE, rescale=TRUE)
 #' # browseURL(outfile)
+#' }
 #' @return NULL
 
 write4D <- function(scene, outfile, fnames=NULL, 

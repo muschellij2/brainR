@@ -2,10 +2,9 @@
 \alias{scene4d}
 \title{Wrapper to write a 4D scene}
 \usage{
-  scene4d(files, fnames = NULL,
-    outfile = "index_4D_stl.html", levels = NULL,
-    alpha = NULL, color = "white", useTemp = FALSE,
-    MNITemp = c("1mm", "2mm"), objtype = "stl", ...)
+scene4d(files, fnames = NULL, outfile = "index_4D_stl.html",
+  levels = NULL, alpha = NULL, color = "white", useTemp = FALSE,
+  MNITemp = c("1mm", "2mm"), objtype = "stl", ...)
 }
 \arguments{
   \item{files}{(character) vector of filenames (first being
@@ -42,17 +41,16 @@
 
   \item{...}{other options to be passed to \link{write4D}}
 }
-\value{
-  NULL
-}
 \description{
-  This function takes in filenames, levels, and creates an
-  output html file, with 4D elements.
+This function takes in filenames, levels, and creates an
+output html file, with 4D elements.
 }
 \examples{
+\dontrun{
 imgs <- paste("Visit_", 1:5, ".nii.gz", sep="")
  files <- sapply(imgs, system.file, package='brainR')
 scene4d(files, levels=rep(0.99, length(files)), color= rep("blue", length(files)), useTemp=TRUE,
 MNITemp = "1mm", alpha = rep(1, length(files)), rescale=TRUE  )
+}
 }
 

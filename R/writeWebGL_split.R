@@ -9,6 +9,7 @@
 #' @param ... - further arguments passed to \link[rgl]{writeWebGL}
 #' @export
 #' @examples
+#' \dontrun{
 #' #Brain Template from Copyright (C) 1993-2009 Louis Collins, 
 #' #McConnell Brain Imaging Centre, 
 #' #Montreal Neurological Institute, McGill University
@@ -32,7 +33,8 @@
 #' writeWebGL_split(dir=getwd(), filename =fname, 
 #' template = system.file("my_template.html", package="brainR"), width=500, 
 #' writeIt=TRUE)
-#' # browseURL(fname)
+#' browseURL(fname)
+#' }
 #' @return if writeIt is TRUE, then returns the value from \link[rgl]{writeWebGL}.
 #' Otherwise, returns the split triangles from the rgl objects
 
