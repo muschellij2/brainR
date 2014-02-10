@@ -1,7 +1,7 @@
 #' Wrapper to write a 4D scene
 #'
 #' This function takes in filenames, levels, and creates an output html file,
-#' with 4D elements.
+#' with 4D elements.  The html is based on XTK (https://github.com/xtk/X#readme)
 #' 
 #' @param files (character) vector of filenames (first being a brain file if useTemp=FALSE)
 #' @param fnames (character) filenames for the 3D surfaces in the scene - needs to 
@@ -21,6 +21,11 @@
 #' @param ... other options to be passed to \link{write4D}
 #' @export
 #' @examples
+#' ### Faster - 8mm resampled but very coarse
+#' imgs <- paste("Visit_", 1:5, "_8mm.nii.gz", sep="") 
+#'  files <- sapply(imgs, system.file, package='brainR')
+#' scene4d(files, levels=rep(0.99, length(files)), color= rep("blue", length(files)), useTemp=TRUE, 
+#' MNITemp = "8mm", alpha = rep(1, length(files)), rescale=TRUE  )
 #' \dontrun{
 #' imgs <- paste("Visit_", 1:5, ".nii.gz", sep="") 
 #'  files <- sapply(imgs, system.file, package='brainR')

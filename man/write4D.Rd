@@ -29,8 +29,13 @@ series of files either with the stl format or obj format
 (see \link{writeOBJ} and \link{writeSTL})
 }
 \examples{
-\dontrun{
-template <- readNIfTI(system.file("MNI152_T1_1mm_brain.nii.gz", package="brainR")
+#Brain Template from Copyright (C) 1993-2009 Louis Collins,
+#McConnell Brain Imaging Centre,
+#Montreal Neurological Institute, McGill University
+#6th generation non-linear symmetric brain
+##Downsampled to 8mm using FSL fslmaths -subsamp2
+
+template <- readNIfTI(system.file("MNI152_T1_8mm_brain.nii.gz", package="brainR")
 , reorient=FALSE)
 dtemp <- dim(template)
 ### 4500 - value that empirically value that presented a brain with gyri
@@ -40,7 +45,7 @@ z=1:dtemp[3], level = 4500, alpha = 0.8, draw = FALSE)
 
 ### Example data courtesy of Daniel Reich
 ### Each visit is a binary mask of lesions in the brain
-imgs <- paste("Visit_", 1:5, ".nii.gz", sep="")
+imgs <- paste("Visit_", 1:5, "_8mm.nii.gz", sep="")
 files <- sapply(imgs, system.file, package='brainR')
 scene <- list(brain)
 ## loop through images and thresh
@@ -60,6 +65,5 @@ fnames <- c("brain.stl", gsub(".nii.gz", ".stl", imgs, fixed=TRUE))
 outfile <-  "index_4D_stl.html"
 write4D(scene=scene, fnames=fnames, outfile=outfile, standalone=TRUE, rescale=TRUE)
 # browseURL(outfile)
-}
 }
 
