@@ -30,7 +30,7 @@
 #' imgs <- paste("Visit_", 1:5, ".nii.gz", sep="") 
 #'  files <- sapply(imgs, system.file, package='brainR')
 #' scene4d(files, levels=rep(0.99, length(files)), color= rep("blue", length(files)), useTemp=TRUE, 
-#' MNITemp = "1mm", alpha = rep(1, length(files)), rescale=TRUE  )
+#' MNITemp = "8mm", alpha = rep(1, length(files)), rescale=TRUE  )
 #' }
 #' @return NULL
 
