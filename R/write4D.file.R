@@ -222,9 +222,6 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
   addbox <- grep("%ADDCHECKBOXES%", htmltmp)
   htmltmp <- c(htmltmp[1:(addbox-1)], inputs, htmltmp[(addbox+1):length(htmltmp)])
   
-  
-  writeLines(htmltmp, con=outfile, sep="\n")
-  
   ## put in the other xtk_edge stuff if standalone
   outdir <- dirname(outfile)
   if (standalone) {
@@ -234,6 +231,8 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
                   to=file.path(outdir, "xtk_edge.js") )
     ### copy xtk_edge.js to file
   }  
+  writeLines(htmltmp, con=outfile, sep="\n")
+  
   return(invisible(NULL))
 }
   
