@@ -143,7 +143,6 @@ write4D <- function(scene, outfile, fnames=NULL,
       lfname <- paste0(stub, "_", nums, ".", tolower(fmt))
       for (isroi in 1:nsubrois){
           iirgl <- irgl[[isroi]]
-          lfname <- fname          
           sfname <- paste0(stub, "_", nums[isroi], ".", tolower(fmt))          
           if (fmt %in% "STL" & !reprint){
             if (!writefiles){
