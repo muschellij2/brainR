@@ -3,7 +3,7 @@
 \title{Wrapper to write a 4D scene}
 \usage{
 write4D(scene, outfile, fnames = NULL, captions = NULL, writefiles = TRUE,
-  ...)
+  reprint = FALSE, ...)
 }
 \arguments{
   \item{scene}{list of 3D triangles (see \link{contour3d}).
@@ -19,6 +19,10 @@ write4D(scene, outfile, fnames = NULL, captions = NULL, writefiles = TRUE,
 
   \item{writefiles}{(experimental) simply run the code to
   create the html and not write the .obj or .stl files}
+
+  \item{reprint}{(logical, experimental) do you want to
+  reprint the rgl before saving (common use by rgl
+  functions)}
 
   \item{...}{other options to be passed to
   \link{write4D.file}}

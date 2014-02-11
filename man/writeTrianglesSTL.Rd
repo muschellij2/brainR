@@ -1,0 +1,24 @@
+\name{writeTrianglesSTL}
+\alias{writeTrianglesSTL}
+\title{Write STL triangles (without recalling the ids)}
+\usage{
+writeTrianglesSTL(scene, con, ascii = FALSE)
+}
+\arguments{
+  \item{scene}{list of triangles (that have class
+  Triangles3D)}
+
+  \item{con}{filename or connection of stl file to write}
+
+  \item{ascii}{indicator if the file should be written in
+  ascii or binary}
+}
+\value{
+filename (invisible) of stl object
+}
+\description{
+This is code extracted from \code{\link{writeSTL}} in
+\code{rgl}.  This allows users to write the triangles in
+STL without reprinting the rgl (which takes time)
+}
+
