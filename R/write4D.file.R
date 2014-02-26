@@ -120,7 +120,8 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
     if (toggle == "radio") {
       fcn <- "GetradioSelectedItem() "
       rname <- "r1"
-      vis <- FALSE
+      ### have the first one clicked
+      vis <- ifelse(roiname == "ROI2", TRUE, FALSE)
     }      
     ret <- paste0('<Input type = ', toggle, ' Name = ', rname, " ", addto, 
                   ' onClick = ', fcn, ifelse(vis, 'checked', ""), 
