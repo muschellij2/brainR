@@ -116,6 +116,7 @@ write4D <- function(scene, outfile, fnames=NULL,
     irgl <- scene[[iroi]]
     fname <- fnames[iroi]
     fmt <- formats[iroi]    
+    fname = basename(fname)
     if (class(irgl) == "Triangles3D"){
       lfname <- fname
       obj.colors <- irgl$color
