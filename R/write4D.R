@@ -95,7 +95,7 @@ write4D <- function(scene, outfile, fnames=NULL,
   
   
   write_output <- function(outdir, fname, fmt, reprint=FALSE, ...){
-    filename <- file.path(outdir, fname)
+    filename <- file.path(outdir, basename(fname))
     fcn <- paste0("write", fmt)
     if (fmt %in% "STL" & !reprint) fcn <- paste0("writeTriangles", fmt)
     do.call(fcn, list(con=filename, ...))
