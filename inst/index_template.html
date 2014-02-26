@@ -64,7 +64,10 @@ function GetSelectedItem() {
 function GetradioSelectedItem() {
 
 	chosen = ""
-	len = document.f1.r1.length
+	len = document.f1.r1.length;
+	if(typeof len == 'undefined') {
+		len = 1;
+	}	
 	// start with 1 because first is the brain
 	for (i = 0; i <len; i++) {
 		check = document.f1.r1[i].value
