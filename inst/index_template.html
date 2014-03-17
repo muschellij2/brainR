@@ -87,6 +87,23 @@ function GetradioSelectedItem() {
             o.opacity = 1;
 	}
 }
+
+function GetSliderItem(sliderID) {
+    var y = document.getElementById(sliderID);
+    var val = ['ROI' + y.value];
+	for (iroi in ROIS) {
+		o = eval(ROIS[iroi]);
+		if (ROIS[iroi] != val){
+		console.log("o = " + o);            
+		console.log("iroi = " + iroi);
+		o.visible = false;
+		// o.opacity = 1.0;
+		} else {
+			o.visible = true;
+		}
+	}    
+
+};
 		
 		  function highlight(what) {
 		    

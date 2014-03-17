@@ -198,15 +198,31 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
     # print("Caption")
     # print(cap)
     ### for checkboxes
+    input = NULL
     if (iroi == 1) {
       input <- make_input(roiname=rname, caption=cap, vis=vis, toggle= "checkbox")
     } else {
-      input <- make_input(roiname=rname, caption=cap, vis=vis, toggle= toggle)
+#       print(iroi)
+      if (!(toggle %in% "slider")) {
+#         print('making input')
+        input <- make_input(roiname=rname, caption=cap,
+                            vis=vis, toggle= toggle)
+      }
     }
     inputs <- c(inputs, input)
     
     cmds <- c(cmds, "", cmd)
     
+  }
+  
+  if ((toggle %in% "slider") & nrois > 1){
+#     print(toggle)
+    inputs = c(inputs, 
+               paste0('<input id="defaultSlider" type="range" min="2" max="', 
+               nrois, 
+               '" step="1" value="2" onchange="GetSliderItem(', 
+               "'defaultSlider'", 
+               ');" />'))
   }
   
   ### add in the commands to the html
@@ -221,6 +237,7 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
   
   ## add checkboxes for control
   addbox <- grep("%ADDCHECKBOXES%", htmltmp)
+#   print(inputs)
   htmltmp <- c(htmltmp[1:(addbox-1)], inputs, htmltmp[(addbox+1):length(htmltmp)])
   
   ## put in the other xtk_edge stuff if standalone
