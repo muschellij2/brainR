@@ -21,6 +21,9 @@
 #' @param index.file - template html file used
 #' @param toggle - (experimental) "checkbox" (default) or "radio" for radio or checkboxes to switch thing 
 #' @export
+#' @import rgl
+#' @import oro.nifti
+#' @import misc3d
 #' @seealso \code{\link{writeOBJ}}, \code{\link{writeSTL}}, 
 #' \code{\link{contour3d}}
 #' @return NULL
