@@ -1,7 +1,7 @@
 Package: brainR
 Type: Package
 Title: Helper functions to misc3d and rgl packages for brain imaging
-Version: 1.1
+Version: 1.2
 Date: 2013-07-29
 Author: John Muschelli III
 Maintainer: John Muschelli III <muschellij2@gmail.com>
