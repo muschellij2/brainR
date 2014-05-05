@@ -248,8 +248,12 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
   if (standalone) {
     htmltmp <- gsub("http://get.goxtk.com/xtk_edge.js", "xtk_edge.js", 
                     htmltmp, fixed=TRUE)
+    htmltmp <- gsub("http://get.goXTK.com/xtk_xdat.gui.js", "xtk_xdat.gui.js", 
+                    htmltmp, fixed=TRUE)    
+    file.copy(from=system.file("xtk_xdat.gui.js", package="brainR"), 
+                  to=file.path(outdir, "xtk_xdat.gui.js") )
     file.copy(from=system.file("xtk_edge.js", package="brainR"), 
-                  to=file.path(outdir, "xtk_edge.js") )
+              to=file.path(outdir, "xtk_edge.js") )    
     ### copy xtk_edge.js to file
   }  
   writeLines(htmltmp, con=outfile, sep="\n")
