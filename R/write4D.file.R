@@ -272,7 +272,11 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
   if (xtkgui){
     rmbrainopac <- grep("%BRAINOPAC%", htmltmp)
     htmltmp <- c(htmltmp[1:(rmbrainopac-1)], 
-                 htmltmp[(rmbrainopac+1):length(htmltmp)])        
+                 htmltmp[(rmbrainopac+1):length(htmltmp)])
+    ### remove text box
+    rmbrainopac <- grep("range_brain", htmltmp)
+    htmltmp <- c(htmltmp[1:(rmbrainopac-1)], 
+                 htmltmp[(rmbrainopac+1):length(htmltmp)])    
   }
   ## set opacity
   htmltmp <- gsub("%BRAINOPAC%", copac[1], htmltmp)
