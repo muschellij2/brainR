@@ -151,7 +151,7 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
     guicmd = sprintf("var %s = gui.addFolder('%s');", rguiname, cap)
     guicmd = c(guicmd, paste0(rguiname, ".add(", rname, ", 'visible');"))
     guicmd = c(guicmd, paste0(rguiname, ".add(", rname, ", 'opacity', 0, 1);"))
-    guicmd = c(guicmd, paste0(rguiname, ".add(", rname, ", 'color');"))
+    guicmd = c(guicmd, paste0(rguiname, ".addColor(", rname, ", 'color');"))
     guicmd = c(guicmd, paste0(rguiname, ".open()"))
     
     ### options not yet implemented
@@ -269,6 +269,11 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
   addlist <- grep("%ADDROILIST%", htmltmp)
   htmltmp[addlist] <- gsub("%ADDROILIST%", roinames, htmltmp[addlist])
 
+  if (xtkgui){
+    rmbrainopac <- grep("%BRAINOPAC%", htmltmp)
+    htmltmp <- c(htmltmp[1:(rmbrainopac-1)], 
+                 htmltmp[(rmbrainopac+1):length(htmltmp)])        
+  }
   ## set opacity
   htmltmp <- gsub("%BRAINOPAC%", copac[1], htmltmp)
   
