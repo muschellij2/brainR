@@ -20,6 +20,7 @@
 #' @param colors - character vector of colors (col2rgb is applied)
 #' @param index.file - template html file used
 #' @param toggle - (experimental) "checkbox" (default) or "radio" for radio or checkboxes to switch thing 
+#' @param xtkgui - (experimental) Logical to use xtkgui for objects
 #' @export
 #' @import rgl
 #' @import oro.nifti
@@ -27,8 +28,6 @@
 #' @seealso \code{\link{writeOBJ}}, \code{\link{writeSTL}}, 
 #' \code{\link{contour3d}}
 #' @return NULL
-
-
 
 write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames, 
                          visible=TRUE, 
@@ -38,7 +37,8 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
                          standalone=FALSE,
                          rescale=FALSE,
                          index.file=system.file("index_template.html", 
-                                                package="brainR"), toggle="checkbox"){
+                                                package="brainR"), 
+                         toggle="checkbox", xtkgui = FALSE){
   
   
   stopifnot(!is.null(scene))
@@ -147,6 +147,12 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
              paste0(rname, ".caption = '", cap, "';"))   
     
     
+    rguiname = paste0(rname, "GUI")
+    guicmd = sprintf("var %s = gui.addFolder('%s');", rguiname, cap)
+    guicmd = c(guicmd, paste0(rguiname, ".add(", rname, ", 'visible');"))
+    guicmd = c(guicmd, paste0(rguiname, ".add(", rname, ", 'opacity', 0, 1);"))
+    guicmd = c(guicmd, paste0(rguiname, ".add(", rname, ", 'color');"))
+    guicmd = c(guicmd, paste0(rguiname, ".open()"))
     
     ### options not yet implemented
     cols <- paste0(param$colors, collapse=", ")
@@ -159,8 +165,11 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
              paste0(rname, ".opacity = ", opp, ";"))
     
     ## just nice formatting for the html to indent
-    cmd <- paste0(indent, cmd)             
+    cmd <- paste0(indent, cmd)
+    guicmd = paste0(indent, guicmd)
+    if (xtkgui) cmd = c(cmd, guicmd)
     return(cmd)
+
     
   }
   
@@ -232,6 +241,13 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
   htmltmp <- c(htmltmp[1:(add_roi-1)], cmds, htmltmp[(add_roi+1):length(htmltmp)])
   roinames <- "'ROI1'"
   if (nrois > 1) roinames <- paste0("'ROI", 2:nrois, "'", collapse = ", ")
+
+  
+  if (xtkgui) {
+    addgui <- grep("%ADDROILIST%", htmltmp)
+    htmltmp <- c(htmltmp[1:(add_roi)], "var gui = new dat.GUI();", htmltmp[(add_roi+1):length(htmltmp)])
+  }
+  
   addlist <- grep("%ADDROILIST%", htmltmp)
   htmltmp[addlist] <- gsub("%ADDROILIST%", roinames, htmltmp[addlist])
 
@@ -241,7 +257,13 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
   ## add checkboxes for control
   addbox <- grep("%ADDCHECKBOXES%", htmltmp)
 #   print(inputs)
-  htmltmp <- c(htmltmp[1:(addbox-1)], inputs, htmltmp[(addbox+1):length(htmltmp)])
+  if (!xtkgui){
+    htmltmp <- c(htmltmp[1:(addbox-1)], inputs, 
+                 htmltmp[(addbox+1):length(htmltmp)])
+  } else {
+    htmltmp <- c(htmltmp[1:(addbox-1)], 
+                 htmltmp[(addbox+1):length(htmltmp)])    
+  }
   
   ## put in the other xtk_edge stuff if standalone
   outdir <- dirname(outfile)

@@ -6,7 +6,7 @@ write4D.file(scene = NULL, outfile = "index_4D.html", fnames,
   visible = TRUE, opacity = 1, colors = NULL, captions = "",
   standalone = FALSE, rescale = FALSE,
   index.file = system.file("index_template.html", package = "brainR"),
-  toggle = "checkbox")
+  toggle = "checkbox", xtkgui = FALSE)
 }
 \arguments{
   \item{scene}{- list of 3D triangles (see
@@ -40,6 +40,9 @@ write4D.file(scene = NULL, outfile = "index_4D.html", fnames,
 
   \item{toggle}{- (experimental) "checkbox" (default) or
   "radio" for radio or checkboxes to switch thing}
+
+  \item{xtkgui}{- (experimental) Logical to use xtkgui for
+  objects}
 }
 \description{
 This function takes in a scene and writes it out to a
