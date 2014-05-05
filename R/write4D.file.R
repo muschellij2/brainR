@@ -167,14 +167,14 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
     ## just nice formatting for the html to indent
     cmd <- paste0(indent, cmd)
     guicmd = paste0(indent, guicmd)
-    if (xtkgui) cmd = c(cmd, guicmd)
-    return(cmd)
+#     if (xtkgui) cmd = c(cmd, guicmd)
+    return(list(cmd=cmd, guicmd=guicmd))
 
     
   }
   
   iroi <- 1
-  inputs <- cmds <- NULL
+  guicmds <- inputs <- cmds <- NULL
   for (iroi in 1:nrois) {
     ### allow you to set all the controls for the images
     rclass <- classes[iroi]
@@ -186,7 +186,9 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
     if (rclass == "Triangles3D"){
       param <- list(opacity = unlist(params$opacity[iroi]), 
                     visible = params$visible[iroi], captions= params$captions[iroi], colors=cols)			
-      cmd <- pusher(rname, fname, param, pushto= "scene")
+      topush = pusher(rname, fname, param, pushto= "scene")
+      cmd <- topush$cmd
+      guicmd = topush$guicmd
     }
     if (rclass == "list"){
       
@@ -196,11 +198,19 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
       cmd <- c(cmd, paste0(rname, ".visible = ", vis, ";"), "")
       for (isubroi in 1:length(fname)){
         param <- list(opacity = unlist(params$opacity[iroi])[isubroi], 
-                      visible = params$visible[iroi], captions= params$captions[iroi], colors=cols[isubroi,])		
+                      visible = params$visible[iroi], captions= params$captions[iroi], 
+                      colors=cols[isubroi,])		
         rrname <- paste0(rname, "_", isubroi)
         ffname <- fname[isubroi]
-        cmd <- c(cmd, pusher(rrname, ffname, param, pushto= rname), "")
+        topush = pusher(rrname, ffname, param, pushto= rname)
+        cmd <- c(cmd, topush$cmd, "")
       }
+      param <- list(opacity = 1, 
+                    visible = TRUE, captions= params$captions[iroi], 
+                    colors= "white")     
+      topush = pusher(rname, fname, param, pushto= "blah")
+      guicmd <- topush$guicmd
+      
     }
     
     
@@ -224,7 +234,8 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
     inputs <- c(inputs, input)
     
     cmds <- c(cmds, "", cmd)
-    
+    guicmds <- c(guicmds, "", guicmd)
+
   }
   
   if ((toggle %in% "slider") & nrois > 1){
@@ -238,14 +249,21 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
   }
   
   ### add in the commands to the html
-  htmltmp <- c(htmltmp[1:(add_roi-1)], cmds, htmltmp[(add_roi+1):length(htmltmp)])
+  htmltmp <- c(htmltmp[1:(add_roi-1)], cmds, 
+               htmltmp[(add_roi+1):length(htmltmp)])
   roinames <- "'ROI1'"
   if (nrois > 1) roinames <- paste0("'ROI", 2:nrois, "'", collapse = ", ")
 
   
+  addgui <- grep("%ADDGUI%", htmltmp)
   if (xtkgui) {
-    addgui <- grep("%ADDROILIST%", htmltmp)
-    htmltmp <- c(htmltmp[1:(add_roi)], "var gui = new dat.GUI();", htmltmp[(add_roi+1):length(htmltmp)])
+    htmltmp <- c(htmltmp[1:(addgui -1)], 
+                 "var gui = new dat.GUI();", 
+                 guicmds,
+                 htmltmp[(addgui+1):length(htmltmp)])
+  } else {
+    htmltmp <- c(htmltmp[1:(addgui -1)], 
+                 htmltmp[(addgui+1):length(htmltmp)])
   }
   
   addlist <- grep("%ADDROILIST%", htmltmp)
