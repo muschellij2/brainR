@@ -152,7 +152,7 @@ write4D.file <- function(scene=NULL, outfile="index_4D.html", fnames,
     guicmd = c(guicmd, paste0(rguiname, ".add(", rname, ", 'visible');"))
     guicmd = c(guicmd, paste0(rguiname, ".add(", rname, ", 'opacity', 0, 1);"))
     guicmd = c(guicmd, paste0(rguiname, ".addColor(", rname, ", 'color');"))
-    guicmd = c(guicmd, paste0(rguiname, ".open()"))
+#     guicmd = c(guicmd, paste0(rguiname, ".open()"))
     
     ### options not yet implemented
     cols <- paste0(param$colors, collapse=", ")
