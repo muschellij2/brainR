@@ -28,7 +28,7 @@
 #' alpha = c(0.5, 0.8), add = TRUE, color=c("yellow", "red"))
 #' ### add text
 #' text3d(x=dtemp[1]/2, y=dtemp[2]/2, z = dtemp[3]*0.98, text="Top")
-#' text3d(x=dtemp[1]*0.98, y=dtemp[2]/2, z = dtemp[3]/2, text="Right")
+#' text3d(x=-0.98, y=dtemp[2]/2, z = dtemp[3]/2, text="Right")
 #' fname <- "knitted_webGL.html"
 #' writeWebGL_split(dir=getwd(), filename =fname, 
 #' template = system.file("my_template.html", package="brainR"), width=500, 
