@@ -15,6 +15,7 @@
 #' @param reprint (logical, experimental) do you want to reprint the rgl before saving (common use by rgl functions)
 #' @param ... other options to be passed to \link{write4D.file}
 #' @export
+#' @import rglwidget
 #' @examples
 #' #Brain Template from Copyright (C) 1993-2009 Louis Collins, 
 #' #McConnell Brain Imaging Centre, 

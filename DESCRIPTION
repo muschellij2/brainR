@@ -1,8 +1,8 @@
 Package: brainR
 Type: Package
-Title: Helper functions to misc3d and rgl packages for brain imaging
-Version: 1.3
-Date: 2013-07-29
+Title: Helper Functions to Misc3d and rgl Packages for Brain Imaging
+Version: 1.4
+Date: 2015-12-07
 Author: John Muschelli III
 Maintainer: John Muschelli III <muschellij2@gmail.com>
 Description: This includes functions for creating 3D and 4D images using WebGL,
@@ -13,15 +13,10 @@ LazyData: true
 Depends:
     rgl,
     misc3d,
+    rglwidget,
     oro.nifti
 Copyright: MNI152_T1_2mm_brain.nii.gz from Copyright (C) 1993-2009 Louis
     Collins, McConnell Brain Imaging Centre, Montreal Neurological Institute,
-    McGill University 6th generation non-linear symmetric brain
-Collate:
-    'brainR-package.R'
-    'makeScene.R'
-    'scene4d.R'
-    'write4D.R'
-    'write4D.file.R'
-    'writeTrianglesSTL.R'
-    'writeWebGL_split.R'
+    McGill University 6th generation non-linear symmetric brain.
+RoxygenNote: 5.0.0
+

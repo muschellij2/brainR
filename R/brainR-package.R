@@ -14,9 +14,3 @@
 #' @keywords package, brainR
 #' @seealso \code{\link{contour3d}}, \code{\link{rgl}}
 NULL
-#' @include 'makeScene.R'
-#' @include 'write4D.file.R'
-#' @include 'write4D.R'
-#' @include 'writeWebGL_split.R'
-#' @include 'brainR-package.R'
-#' @export

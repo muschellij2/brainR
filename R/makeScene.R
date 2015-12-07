@@ -2,7 +2,7 @@
 #'
 #' Make scene returns a list of levels - but makes them mutually distinct.  
 #' So if cutoff 0.1, 0.2, then 0.1<= x < 0.2 is an roi, not > 0.1 and > 0.2.
-#' Different than \link{contour3d} as these are mutually exclusive levels.
+#' Different than \code{\link{contour3d}} as these are mutually exclusive levels.
 #'
 #' 
 #' @param data - 3D array of values (can be \link{nifti-class})
@@ -10,8 +10,10 @@
 #' @param alpha - alpha levels for each contour
 #' @param cols - colors for each contour
 #' @export
+#' @import rgl
+#' @import rglwidget
+#' @import misc3d
 #' @return scene with multiple objects - can be passed to \link{write4D}
-
 makeScene <- function(data, cutoffs, alpha, cols ){
   scene <- list()
   ### make sure ordered
