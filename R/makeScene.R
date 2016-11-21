@@ -1,17 +1,16 @@
 #' Make Leveled Scene
 #'
-#' Make scene returns a list of levels - but makes them mutually distinct.  
+#' Make scene returns a list of levels - but makes them mutually distinct.
 #' So if cutoff 0.1, 0.2, then 0.1<= x < 0.2 is an roi, not > 0.1 and > 0.2.
 #' Different than \code{\link{contour3d}} as these are mutually exclusive levels.
 #'
-#' 
+#'
 #' @param data - 3D array of values (can be \link{nifti-class})
 #' @param cutoffs - series of levels to be created
 #' @param alpha - alpha levels for each contour
 #' @param cols - colors for each contour
 #' @export
 #' @import rgl
-#' @import rglwidget
 #' @import misc3d
 #' @return scene with multiple objects - can be passed to \link{write4D}
 makeScene <- function(data, cutoffs, alpha, cols ){
@@ -26,13 +25,13 @@ makeScene <- function(data, cutoffs, alpha, cols ){
   ### going through rois to make the activaiton
   for (iroi in 1:nlevels){
     eps <- 0.0001
-    ### levels are right inclusive 
+    ### levels are right inclusive
     tmp <- array(FALSE, dim=dim(data))
     mlev <- cutoffs[iroi]
     if (iroi == nlevels) {
       nlev <- max(data) + eps
     } else {
-      nlev <- cutoffs[iroi+1]  
+      nlev <- cutoffs[iroi+1]
     }
     ## make binary mask
     tmp[ data >= mlev & data < nlev  ] <- 1
@@ -41,7 +40,7 @@ makeScene <- function(data, cutoffs, alpha, cols ){
       warning("No contour to make")
       next
     } else {
-      activation <- contour3d(tmp, level = 0, alpha = alpha[iroi], 
+      activation <- contour3d(tmp, level = 0, alpha = alpha[iroi],
                               color=cols[iroi], draw=FALSE)
     }
     scene <- c(scene, list(activation))
