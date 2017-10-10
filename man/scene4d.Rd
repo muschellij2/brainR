@@ -52,4 +52,3 @@ scene4d(files, levels=rep(0.99, length(files)), color= rep("blue", length(files)
 MNITemp = "8mm", alpha = rep(1, length(files)), rescale=TRUE  )
 }
 }
-

@@ -48,4 +48,3 @@ either with the stl format or obj format
 \code{\link{writeOBJ}}, \code{\link{writeSTL}}, 
 \code{\link{contour3d}}
 }
-

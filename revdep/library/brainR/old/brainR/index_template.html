@@ -1,0 +1,221 @@
+
+<html>
+<!-- WebGL Export for 3D Slicer4 powered by XTK -- http://goXTK.com -->
+  <head>
+    <title>WebGL Export</title>
+    <script type="text/javascript" src="http://get.goxtk.com/xtk_edge.js"></script>
+    <script type="text/javascript">
+      var run = function() {
+
+        renderer0 = new X.renderer3D();
+        renderer0.container = 'r0';
+        renderer0.init();
+
+        scene = new X.object();
+        // %ADDBRAIN%
+
+        Hierarchy = new X.object();
+        scene.children.push(Hierarchy);
+        
+        %ADDROI%
+
+        renderer0.add(scene);
+        renderer0.camera.position = [0.0, %SCALER%, 0.0];
+        renderer0.camera.up = [0.0, 0.0, 1.0];
+        renderer0.render();
+
+
+
+      };
+ROIS = [%ADDROILIST%];
+brains = ['ROI1'];
+function GetSelectedItem() {
+
+	chosen = ""
+	len = document.f1.r2.length;
+	if(typeof len == 'undefined') {
+		len = 1;
+	}
+	doc = document.f1.r2;
+	console.log("len = " + len);
+
+	for (i = 0; i < len; i++) {
+		obj = document.f1.r2[i];
+		if (len == 1) obj = document.f1.r2;
+		check = obj.value;
+		console.log("check = " + check);
+
+        	    o = eval(check);
+	            o.visible = false;
+		
+		if (obj.checked) {
+			chosen = obj.value;
+            o = eval(chosen);
+            o.visible = true;
+            // o.opacity = 1;
+		console.log("o = " + o);
+		console.log("o.opacity = " + o.opacity);
+					
+		}
+	}
+	
+}
+
+function GetradioSelectedItem() {
+
+	chosen = ""
+	len = document.f1.r1.length;
+	if(typeof len == 'undefined') {
+		len = 1;
+	}	
+	// start with 1 because first is the brain
+	for (i = 0; i <len; i++) {
+		check = document.f1.r1[i].value
+        	    o = eval(check);
+	            o.visible = false;
+		if (document.f1.r1[i].checked) {
+			chosen = document.f1.r1[i].value
+		}
+	}
+	
+	if (chosen == "") {
+		alert("No Location Chosen")
+	}
+	else {
+            o = eval(chosen);
+            o.visible = true;
+            o.opacity = 1;
+	}
+}
+
+function GetSliderItem(sliderID) {
+    var y = document.getElementById(sliderID);
+    var val = ['ROI' + y.value];
+	for (iroi in ROIS) {
+		o = eval(ROIS[iroi]);
+		if (ROIS[iroi] != val){
+		console.log("o = " + o);            
+		console.log("iroi = " + iroi);
+		o.visible = false;
+		// o.opacity = 1.0;
+		} else {
+			o.visible = true;
+		}
+	}    
+
+};
+		
+		  function highlight(what) {
+		    
+		    document.getElementById('all').style.backgroundColor = '#000000';
+		    document.getElementById('ROIS').style.backgroundColor = '#000000';
+		    document.getElementById('brains').style.backgroundColor = '#000000';
+		    
+		    document.getElementById(what).style.backgroundColor = '#736AFF';
+		    
+		  };
+
+		  function show(whatstring, opac) {
+		        
+		    // highlight the div
+		    //    highlight(whatstring); 
+		    
+		    if (whatstring == 'all') {		      
+		      
+		      // show everything
+		      scene.opacity = opac;
+		      scene.visible = true;
+		      
+		    } else {
+		      
+		      // show specific anatomy
+          		what = eval(whatstring);
+		        what.opacity = opac;
+		        what.visible = true;     
+ 			console.log("what = " + what);
+			    
+		    }
+		    
+		  };
+		  
+
+		  
+		  function toggleCheckBox() {
+		    
+		    document.getElementById('showOverlay').checked = !document.getElementById('showOverlay').checked;		    
+		    
+		  };
+		  
+        function printValue(sliderID, textbox) {
+            var x = document.getElementById(textbox);
+            var y = document.getElementById(sliderID);
+            x.value = y.value;
+        };
+
+		  function show2(sliderID, textbox) {
+	            var x = document.getElementById(textbox);
+	            var y = document.getElementById(sliderID);
+		    val = y.value;
+			console.log("scene = " + scene);
+			//scene.opacity = 0;
+/*
+			console.log("brains[1] = " + brains[1]);
+			brains.visible = true;
+			console.log("brains = " + brains);
+			show(brains, 0.5);
+*/
+			for (o in ROIS) {
+				o = eval(ROIS[o]);
+				o.visible = false;
+				// o.opacity = 1.0;
+			}
+
+			//show(brains, 0.5);
+			low = Math.floor(val);
+			op_low = 1 - (val - low);
+			chosen = ROIS[low];
+		        show(chosen, op_low);
+			console.log("low = " + chosen);
+			console.log("op_low = " + op_high);
+/*
+			for (o in ROIS) {
+				console.log("o = ", o);
+			}
+*/
+
+			high = Math.ceil(val);
+
+			op_high = val - low;
+			chosen = ROIS[high];
+			x.value = chosen;
+			show(chosen, op_high);
+			console.log("high = " + chosen);
+			console.log("op_high = " + op_high);
+
+		};
+
+		
+function opac_brain(sliderID, textbox) {
+            var x = document.getElementById(textbox);
+            var y = document.getElementById(sliderID);
+    var val = y.value;
+    x.value = val;
+	low = Math.floor(val);
+	op_low = (val - low);
+	ROI1.opacity = op_low;
+	ROI1.visible = true;
+};
+    </script>
+  </head>
+  <body style="margin:0px; padding:0px;" onload="run()">
+        <div id="r0" style="background-color: #ffffff;; width: 75%; height: 75%;"></div>
+
+<FORM NAME = f1>
+<P align="center">
+%ADDCHECKBOXES%
+</P>
+</FORM>
+Brain Alpha Blending Slider <input id="slider_brain" type="range" min="0.01" max="0.99" step="0.01" value="%BRAINOPAC%" onchange="opac_brain('slider_brain','range_brain');"/>
+<input id="range_brain" type="text" size="10"/>
+  </body>
+</html>

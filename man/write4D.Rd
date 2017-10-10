@@ -69,4 +69,3 @@ write4D(scene=scene, fnames=fnames, outfile=outfile, standalone=TRUE, rescale=TR
 browseURL(outfile)
 
 }
-

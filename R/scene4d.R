@@ -33,7 +33,7 @@
 #' MNITemp = "8mm", alpha = rep(1, length(files)), rescale=TRUE  )
 #' }
 #' @return NULL
-
+#' @importFrom grDevices col2rgb rainbow rgb
 
 scene4d <- function(files, fnames=NULL, outfile = "index_4D_stl.html", levels=NULL, alpha=NULL, color="white", 
                     useTemp=FALSE, MNITemp= c("1mm", "2mm"), objtype = "stl", ...){

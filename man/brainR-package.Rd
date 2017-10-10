@@ -2,16 +2,13 @@
 % Please edit documentation in R/brainR-package.R
 \docType{package}
 \name{brainR-package}
-\alias{brainR}
 \alias{brainR-package}
+\alias{brainR}
 \title{Functions to render 3D brain images in html}
 \description{
 Brain Template from Copyright (C) 1993-2009 Louis Collins, McConnell Brain Imaging Centre, 
 Montreal Neurological Institute, McGill University
 6th generation non-linear symmetric brain
-}
-\author{
-John Muschelli \email{muschellij2@gmail.com}
 }
 \references{
 G. Grabner, A. L. Janke, M. M. Budge, D. Smith, J. Pruessner, and
@@ -23,6 +20,8 @@ vol. 9, pp. 58-66, 2006.
 \seealso{
 \code{\link{contour3d}}, \code{\link{rgl}}
 }
+\author{
+John Muschelli \email{muschellij2@gmail.com}
+}
 \keyword{brainR}
 \keyword{package,}
-

@@ -1,0 +1,7 @@
+brainR-package          Functions to render 3D brain images in html
+makeScene               Make Leveled Scene
+scene4d                 Wrapper to write a 4D scene
+write4D                 Wrapper to write a 4D scene
+write4D.file            Write a 4D scene
+writeTrianglesSTL       Write STL triangles (without recalling the ids)
+writeWebGL_split        Write WebGL with split triangles

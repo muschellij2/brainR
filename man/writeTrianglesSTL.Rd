@@ -22,4 +22,3 @@ This is code extracted from \code{\link{writeSTL}} in
 \code{rgl}.  This allows users to write the triangles in STL
 without reprinting the rgl (which takes time)
 }
-

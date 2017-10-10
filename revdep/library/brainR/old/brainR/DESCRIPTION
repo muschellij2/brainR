@@ -1,0 +1,23 @@
+Package: brainR
+Type: Package
+Title: Helper functions to misc3d and rgl packages for brain imaging
+Version: 1.2
+Date: 2013-07-29
+Author: John Muschelli III
+Maintainer: John Muschelli III <muschellij2@gmail.com>
+Description: This includes functions for creating 3D and 4D images using WebGL, RGL, and JavaScript Commands.  This package relies on the X ToolKit (XTK, https://github.com/xtk/X#readme).  
+License: GPL-2
+LazyData: true
+Depends: rgl, misc3d, oro.nifti
+Collate: 'makeScene.R' 'write4D.file.R' 'write4D.R'
+        'writeWebGL_split.R' 'brainR-package.R' 'scene4d.R'
+        'writeTrianglesSTL.R'
+Copyright: MNI152_T1_2mm_brain.nii.gz from Copyright (C) 1993-2009
+        Louis Collins, McConnell Brain Imaging Centre, Montreal
+        Neurological Institute, McGill University 6th generation
+        non-linear symmetric brain
+Packaged: 2014-03-18 18:45:14 UTC; johnmuschelli
+NeedsCompilation: no
+Repository: CRAN
+Date/Publication: 2014-03-18 21:45:52
+Built: R 3.4.0; ; 2017-04-21 13:17:32 UTC; unix
