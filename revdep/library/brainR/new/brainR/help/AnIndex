@@ -1,8 +1,0 @@
-brainR-package	brainR-package
-brainR	brainR-package
-makeScene	makeScene
-scene4d	scene4d
-write4D	write4D
-write4D.file	write4D.file
-writeTrianglesSTL	writeTrianglesSTL
-writeWebGL_split	writeWebGL_split
