@@ -7,7 +7,7 @@ Author: John Muschelli
 Maintainer: John Muschelli <muschellij2@gmail.com>
 Description: This includes functions for creating 3D and 4D images using 
     'WebGL', 'rgl', and JavaScript Commands.  
-    This package relies on the X ToolKit ('XTK',
+    This package relies on the X 'ToolKit' ('XTK',
     <https://github.com/xtk/X#readme>).
 License: GPL-2
 LazyData: true
