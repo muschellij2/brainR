@@ -4,7 +4,8 @@
 \alias{writeWebGL_split}
 \title{Write WebGL with split triangles}
 \usage{
-writeWebGL_split(ids = rgl.ids()$id, writeIt = TRUE, verb = FALSE, ...)
+writeWebGL_split(ids = rgl.ids()$id, writeIt = TRUE, verb = FALSE,
+  ...)
 }
 \arguments{
 \item{ids}{- rgl ids (see \link[rgl]{rgl.ids})}

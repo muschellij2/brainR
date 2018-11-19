@@ -4,8 +4,8 @@
 \alias{write4D}
 \title{Wrapper to write a 4D scene}
 \usage{
-write4D(scene, outfile, fnames = NULL, captions = NULL, writefiles = TRUE,
-  reprint = TRUE, ...)
+write4D(scene, outfile, fnames = NULL, captions = NULL,
+  writefiles = TRUE, reprint = TRUE, ...)
 }
 \arguments{
 \item{scene}{list of 3D triangles (see \link{contour3d}).  If a multicolored

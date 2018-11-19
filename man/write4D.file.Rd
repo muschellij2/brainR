@@ -24,7 +24,7 @@ be the same length as scene}
 html file}
 
 \item{opacity}{- list of alpha values - same length as scene; if sub-structures
-are present, then the each list element has length the numer of structures}
+are present, then the each list element has length the number of structures}
 
 \item{colors}{- character vector of colors (col2rgb is applied)}
 

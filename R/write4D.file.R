@@ -13,7 +13,7 @@
 #' @param visible - logical vector indicating which structures are visible in 
 #' html file
 #' @param opacity - list of alpha values - same length as scene; if sub-structures
-#' are present, then the each list element has length the numer of structures 
+#' are present, then the each list element has length the number of structures 
 #' @param standalone - logical - should this be able to be rendered offline?
 #' @param rescale - rescale the scene? - in beta
 #' @param captions - labels for checkboxes on html webpage
