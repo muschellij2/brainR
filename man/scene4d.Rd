@@ -4,9 +4,18 @@
 \alias{scene4d}
 \title{Wrapper to write a 4D scene}
 \usage{
-scene4d(files, fnames = NULL, outfile = "index_4D_stl.html",
-  levels = NULL, alpha = NULL, color = "white", useTemp = FALSE,
-  MNITemp = c("1mm", "2mm"), objtype = "stl", ...)
+scene4d(
+  files,
+  fnames = NULL,
+  outfile = "index_4D_stl.html",
+  levels = NULL,
+  alpha = NULL,
+  color = "white",
+  useTemp = FALSE,
+  MNITemp = c("1mm", "2mm"),
+  objtype = "stl",
+  ...
+)
 }
 \arguments{
 \item{files}{(character) vector of filenames (first being a brain file if useTemp=FALSE)}

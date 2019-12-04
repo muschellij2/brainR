@@ -57,11 +57,17 @@
 #' }
 #' ## make output image names from image names
 #' fnames <- c("brain.stl", gsub(".nii.gz", ".stl", imgs, fixed=TRUE))
-#' outfile <-  "index_4D_stl.html"
+#' fnames = file.path(tempdir(), fnames)
+#' outfile <-  file.path(tempdir(), "index.html")
 #' write4D.file(
 #' scene=scene, fnames=fnames, 
 #' visible = FALSE,
 #' outfile=outfile, standalone=TRUE, rescale=TRUE)
+#' 
+#' 
+#' 
+#' unlink(outfile)
+#' unlink(fnames)
 write4D.file <- function(
   scene=NULL, outfile="index_4D.html", fnames, 
   visible=TRUE, 
@@ -115,8 +121,11 @@ write4D.file <- function(
     # if (class(colors) == "character"){
     # colors <- t(col2rgb(colors))/(256 / 2)
     # }
+  } else {
+    colors = lapply(scene, function(x) x$color)
+    colors = lapply(colors, col2rgb)
   }
-  stopifnot(all(sapply(colors, class) == "matrix"))
+  stopifnot(all(sapply(colors, inherits, what = "matrix")))
   
   ## generic checking
   nrois <- length(fnames) 
@@ -219,7 +228,8 @@ write4D.file <- function(
     rname <- paste0("ROI", iroi) 
     if (rclass == "Triangles3D"){
       param <- list(opacity = unlist(params$opacity[iroi]), 
-                    visible = params$visible[iroi], captions= params$captions[iroi], colors=cols)			
+                    visible = params$visible[iroi], 
+                    captions= params$captions[iroi], colors=cols)			
       topush = pusher(rname, fname, param, pushto= "scene")
       cmd <- topush$cmd
       guicmd = topush$guicmd
