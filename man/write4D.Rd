@@ -71,9 +71,15 @@ scene <- c(scene, list(activation))
 }
 ## make output image names from image names
 fnames <- c("brain.stl", gsub(".nii.gz", ".stl", imgs, fixed=TRUE))
-outfile <-  "index_4D_stl.html"
-write4D(scene=scene, fnames=fnames, outfile=outfile, standalone=TRUE, rescale=TRUE)
-browseURL(outfile)
+fnames = file.path(tempdir(), fnames)
+outfile <-  file.path(tempdir(), "index.html")
+write4D(scene=scene, fnames=fnames, outfile=outfile, standalone=TRUE, 
+rescale=TRUE)
+if (interactive()) {
+if (requireNamespace("servr", quietly = TRUE)) {
+   servr::httd(tempdir())
+}
+}
 unlink(outfile)
 
 }

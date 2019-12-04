@@ -24,4 +24,4 @@ vol. 9, pp. 58-66, 2006.
 John Muschelli \email{muschellij2@gmail.com}
 }
 \keyword{brainR}
-\keyword{package,}
+\keyword{package}
