@@ -20,7 +20,7 @@ Depends:
     oro.nifti
 Imports:
     grDevices
-RoxygenNote: 7.0.1
+RoxygenNote: 7.1.1
 Encoding: UTF-8
 Suggests: 
     servr

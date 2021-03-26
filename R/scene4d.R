@@ -115,4 +115,5 @@ scene4d <- function(files, fnames=NULL, outfile = "index_4D_stl.html", levels=NU
   fnames <- paste0(fnames, objtype)
   
   write4D(scene=scene, fnames=fnames, outfile=outfile, ...)
+  return(scene)
 }

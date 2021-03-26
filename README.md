@@ -4,8 +4,11 @@
 The goal of `brainR` is to provide this includes functions for creating
 3D and 4D images using ‘WebGL’, ‘rgl’, and JavaScript Commands. This
 package relies on the X ToolKit
-(’XTK’,<https://github.com/xtk/X#readme>).
+(‘XTK’,<https://github.com/xtk/X#readme>).
 
+<!-- badges: start -->
+
+[![R-CMD-check](https://github.com/muschellij2/brainR/workflows/R-CMD-check/badge.svg)](https://github.com/muschellij2/brainR/actions)
 [![Build
 Status](https://travis-ci.org/muschellij2/brainR.svg?branch=master)](https://travis-ci.org/muschellij2/brainR)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/brainR)](https://cran.r-project.org/package=brainR)
@@ -14,6 +17,8 @@ Status](https://travis-ci.org/muschellij2/brainR.svg?branch=master)](https://tra
 Status](https://ci.appveyor.com/api/projects/status/github/muschellij2/brainR?branch=master&svg=true)](https://ci.appveyor.com/project/muschellij2/brainR)
 [![Coverage
 status](https://coveralls.io/repos/github/muschellij2/brainR/badge.svg?branch=master)](https://coveralls.io/r/muschellij2/brainR?branch=master)
+<!-- badges: end -->
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ## Installation
