@@ -28,6 +28,9 @@ jobs:
           needs: check
 
       - uses: r-lib/actions/check-r-package@v2
+        env:
+           RGL_USE_NULL: TRUE
+           DISPLAY: ":99"      
         with:
           upload-snapshots: true
           build_args: 'c("--no-manual","--compact-vignettes=gs+qpdf")'

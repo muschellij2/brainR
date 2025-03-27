@@ -12,7 +12,6 @@ Description: This includes functions for creating 3D and 4D images using
     This package relies on the X toolkit ('XTK',
     <https://github.com/xtk/X#readme>).
 License: GPL-2
-LazyData: true
 Depends:
     rgl,
     misc3d,
