@@ -15,7 +15,7 @@ write4D(
 )
 }
 \arguments{
-\item{scene}{list of 3D triangles (see \link{contour3d}).  If a multicolored
+\item{scene}{list of 3D triangles (see \link[misc3d]{contour3d}).  If a multicolored
 object is to be rendered (multiple contours with one control) - it must be in a
 list}
 
@@ -34,8 +34,8 @@ be the same length as scene}
 }
 \description{
 This function takes in a scene and writes it out to a series of files
-either with the stl format or obj format (see \link{writeOBJ} and
-\link{writeSTL})
+either with the stl format or obj format (see \link[rgl]{writeOBJ} and
+\link[rgl]{writeSTL})
 }
 \examples{
 #Brain Template from Copyright (C) 1993-2009 Louis Collins,

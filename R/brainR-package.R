@@ -8,9 +8,8 @@
 #' vol. 9, pp. 58-66, 2006.
 #' @name brainR-package
 #' @aliases brainR
-#' @docType package
 #' @title Functions to render 3D brain images in html
 #' @author John Muschelli \email{muschellij2@@gmail.com}
 #' @keywords package brainR
-#' @seealso \code{\link{contour3d}}, \code{\link{rgl}}
-NULL
+#' @seealso \code{\link[misc3d]{contour3d}}, \code{\link[rgl]{rgl}}
+"_PACKAGE"

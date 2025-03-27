@@ -1,8 +1,7 @@
 Package: brainR
 Type: Package
 Title: Helper Functions to 'misc3d' and 'rgl' Packages for Brain Imaging
-Version: 1.6.0
-Date: 2019-12-03
+Version: 1.6.1
 Authors@R: c(person(given = "John",
            family = "Muschelli",
            email = "muschellij2@gmail.com",
@@ -20,7 +19,7 @@ Depends:
     oro.nifti
 Imports:
     grDevices
-RoxygenNote: 7.1.1
+RoxygenNote: 7.3.2
 Encoding: UTF-8
 Suggests: 
     servr

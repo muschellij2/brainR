@@ -1,10 +1,10 @@
 #' Wrapper to write a 4D scene
 #'
 #' This function takes in a scene and writes it out to a series of files
-#' either with the stl format or obj format (see \link{writeOBJ} and
-#' \link{writeSTL})
+#' either with the stl format or obj format (see \link[rgl]{writeOBJ} and
+#' \link[rgl]{writeSTL})
 #'
-#' @param scene list of 3D triangles (see \link{contour3d}).  If a multicolored
+#' @param scene list of 3D triangles (see \link[misc3d]{contour3d}).  If a multicolored
 #' object is to be rendered (multiple contours with one control) - it must be in a
 #' list
 #' @param outfile html filename that is to be exported
@@ -124,7 +124,7 @@ write4D <- function(scene, outfile, fnames=NULL,
     fname <- fnames[iroi]
     fmt <- formats[iroi]
     fname = basename(fname)
-    if (class(irgl) == "Triangles3D"){
+    if ("Triangles3D" %in% class(irgl)) {
       lfname <- fname
       obj.colors <- irgl$color
       obj.opac <- irgl$alpha
@@ -139,7 +139,7 @@ write4D <- function(scene, outfile, fnames=NULL,
         if (writefiles) write_output(outdir, fname, fmt, reprint=reprint)
       }
     }
-    if (class(irgl) == "list"){
+    if ("list" %in% class(irgl)) {
       obj.colors <- sapply(irgl, function(x) x$color)
       obj.opac <- sapply(irgl, function(x) x$alpha)
 
@@ -166,15 +166,15 @@ write4D <- function(scene, outfile, fnames=NULL,
           }
       }
     } ## end list
-    stopifnot(class(irgl) %in% c("list", "Triangles3D"))
+    stopifnot(all(c("list", "Triangles3D") %in% class(irgl)))
     opacity <- c(opacity, list(obj.opac))
     colors <- c(colors, list(obj.colors))
     lfnames <- c(lfnames, list(lfname))
     #     eval(parse(text=paste0("write", fmt, "(filename)")))
   } # end loop over rois
 
-  if (class(scene[[1]]) == "Triangles3D") vscale <- max(scene[[1]]$v1)
-  if (class(scene[[1]]) == "list") vscale <- max(scene[[1]][[1]]$v1)
+  if ("Triangles3D" %in% class(scene[[1]])) vscale <- max(scene[[1]]$v1)
+  if ("list" %in% class(scene[[1]])) vscale <- max(scene[[1]][[1]]$v1)
 
   fnames <- lfnames
 

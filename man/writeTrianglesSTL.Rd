@@ -18,7 +18,7 @@ ascii or binary}
 filename (invisible) of stl object
 }
 \description{
-This is code extracted from \code{\link{writeSTL}} in 
+This is code extracted from \code{\link[rgl]{writeSTL}} in 
 \code{rgl}.  This allows users to write the triangles in STL
 without reprinting the rgl (which takes time)
 }

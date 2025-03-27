@@ -95,6 +95,6 @@ unlink(outfile)
 unlink(fnames)
 }
 \seealso{
-\code{\link{writeOBJ}}, \code{\link{writeSTL}}, 
-\code{\link{contour3d}}
+\code{\link[rgl]{writeOBJ}}, \code{\link[rgl]{writeSTL}}, 
+\code{\link[misc3d]{contour3d}}
 }

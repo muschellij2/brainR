@@ -7,7 +7,7 @@
 makeScene(data, cutoffs, alpha, cols)
 }
 \arguments{
-\item{data}{- 3D array of values (can be \link{nifti-class})}
+\item{data}{- 3D array of values (can be \link[oro.nifti]{nifti-class})}
 
 \item{cutoffs}{- series of levels to be created}
 
@@ -21,5 +21,5 @@ scene with multiple objects - can be passed to \link{write4D}
 \description{
 Make scene returns a list of levels - but makes them mutually distinct.
 So if cutoff 0.1, 0.2, then 0.1<= x < 0.2 is an roi, not > 0.1 and > 0.2.
-Different than \code{\link{contour3d}} as these are mutually exclusive levels.
+Different than \code{\link[misc3d]{contour3d}} as these are mutually exclusive levels.
 }

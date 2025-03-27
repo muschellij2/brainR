@@ -25,8 +25,8 @@
 #' @import rgl
 #' @import oro.nifti
 #' @import misc3d
-#' @seealso \code{\link{writeOBJ}}, \code{\link{writeSTL}}, 
-#' \code{\link{contour3d}}
+#' @seealso \code{\link[rgl]{writeOBJ}}, \code{\link[rgl]{writeSTL}}, 
+#' \code{\link[misc3d]{contour3d}}
 #' @return NULL
 #' @examples 
 #'
@@ -113,7 +113,7 @@ write4D.file <- function(
   # }
   
   
-  if (class(visible) != "logical") stop("visible must be logical")
+  if (!"logical" %in% class(visible)) stop("visible must be logical")
   copac <- unlist(opacity)
   if (any(copac > 1 | copac < 0)) stop("Opacity must be in [0,1]")
   if (!is.null(colors)){

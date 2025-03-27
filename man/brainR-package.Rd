@@ -18,7 +18,7 @@ Comput Assist Interv Int Conf Med Image Comput Comput Assist Interv,
 vol. 9, pp. 58-66, 2006.
 }
 \seealso{
-\code{\link{contour3d}}, \code{\link{rgl}}
+\code{\link[misc3d]{contour3d}}, \code{\link[rgl]{rgl}}
 }
 \author{
 John Muschelli \email{muschellij2@gmail.com}
