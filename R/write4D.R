@@ -166,7 +166,7 @@ write4D <- function(scene, outfile, fnames=NULL,
           }
       }
     } ## end list
-    stopifnot(all(c("list", "Triangles3D") %in% class(irgl)))
+    stopifnot(any(c("list", "Triangles3D") %in% class(irgl)))
     opacity <- c(opacity, list(obj.opac))
     colors <- c(colors, list(obj.colors))
     lfnames <- c(lfnames, list(lfname))
