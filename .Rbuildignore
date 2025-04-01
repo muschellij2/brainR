@@ -5,9 +5,11 @@
 ^cran-comments\.md$
 ^appveyor\.yml$
 ^README\.Rmd$
-
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
 ^\.github$
 ^\.DS_Store$
+^CRAN-SUBMISSION$
+^\.*/\.DS_Store$
+.DS_Store
