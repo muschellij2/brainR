@@ -1,7 +1,7 @@
 Package: brainR
 Type: Package
 Title: Helper Functions to 'misc3d' and 'rgl' Packages for Brain Imaging
-Version: 1.6.1
+Version: 1.7.0
 Authors@R: c(person(given = "John",
            family = "Muschelli",
            email = "muschellij2@gmail.com",

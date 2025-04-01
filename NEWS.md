@@ -1,3 +1,7 @@
+# brainR 1.7.0
+
+* Fixing the \link issues with packages.
+
 # brainR 1.6.0
 
 * Fixes for new classes issue in R 4.0.
